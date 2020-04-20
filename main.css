@@ -1,0 +1,303 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  font-family: 'Noto Sans KR', sans-serif;
+  vertical-align: baseline;
+  color: #333;
+  font-size: 16px; }
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: #333; }
+
+span {
+  display: inline-block; }
+
+button {
+  background: inherit;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: visible;
+  cursor: pointer; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.wrap {
+  width: 100%;
+  overflow: hidden; }
+
+header {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  position: fixed;
+  z-index: 100;
+  transition: .35s; }
+  header.active {
+    background: #fff;
+    border-bottom: 1px solid #ddd; }
+  header .headerInner {
+    width: 100%;
+    height: 70px;
+    padding: 0 100px;
+    padding: 0 5.2083%;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    header .headerInner h1 a {
+      width: 159px;
+      height: 46px;
+      text-indent: -9999px;
+      background: url("img/logo.png") no-repeat center center; }
+    header .headerInner nav {
+      height: 100%; }
+      header .headerInner nav .depth1 {
+        width: 680px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 100; }
+        header .headerInner nav .depth1 > li {
+          width: 170px;
+          position: relative;
+          text-align: center;
+          transition: .35s; }
+          header .headerInner nav .depth1 > li a {
+            padding: 10px 20px; }
+          header .headerInner nav .depth1 > li .depth2 {
+            width: 100%;
+            height: 190px;
+            padding-top: 28px;
+            box-sizing: border-box;
+            position: absolute;
+            top: 148%;
+            text-align: center;
+            transform: translateY(-200%);
+            opacity: 0;
+            transition: .3s; }
+            header .headerInner nav .depth1 > li .depth2.active {
+              transform: translateY(0%);
+              opacity: 1; }
+            header .headerInner nav .depth1 > li .depth2 a {
+              color: #5b5b5b;
+              padding: 8px 0;
+              transition: .35s; }
+              header .headerInner nav .depth1 > li .depth2 a:hover {
+                color: #00b17e; }
+    header .headerInner .hire {
+      width: 137px;
+      height: 34px;
+      border-radius: 20px;
+      border: 1px solid #00b17e;
+      box-sizing: border-box;
+      text-align: center; }
+      header .headerInner .hire a {
+        line-height: 34px; }
+    header .headerInner .menuBtn {
+      width: 28px;
+      height: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      display: none; }
+      header .headerInner .menuBtn span {
+        width: 100%;
+        height: 2px;
+        background: #333;
+        cursor: pointer; }
+    header .headerInner .gnbBox {
+      width: 100%;
+      height: 190px;
+      background: #fff;
+      position: absolute;
+      left: 0;
+      top: 71px;
+      z-index: -2;
+      transform: translateY(-200%); }
+      header .headerInner .gnbBox.active {
+        transform: translateY(0%); }
+      header .headerInner .gnbBox span {
+        width: 170px;
+        height: 1px;
+        background: #00b17e;
+        position: absolute;
+        top: -1px;
+        left: 0;
+        transition: .35s; }
+
+main {
+  width: 100%; }
+  main .visual {
+    width: 100%;
+    height: 100vh;
+    position: relative; }
+    main .visual .visualSlide {
+      position: relative;
+      height: 100%; }
+      main .visual .visualSlide ul {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0; }
+        main .visual .visualSlide ul li {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          position: absolute;
+          left: 0;
+          top: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+    main .visual .visualTxt {
+      position: absolute;
+      left: calc(50% - 434px);
+      top: 42%;
+      z-index: 50; }
+      main .visual .visualTxt p {
+        text-align: center;
+        font-weight: 100;
+        font-size: 60px;
+        line-height: 80px;
+        color: #fff; }
+        main .visual .visualTxt p span {
+          font-size: 60px;
+          color: #fff;
+          font-weight: bold;
+          position: relative; }
+          main .visual .visualTxt p span:after {
+            display: block;
+            content: '';
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            background: #fff;
+            bottom: 10px;
+            left: 0; }
+    main .visual .visualBtn {
+      position: absolute;
+      left: 60px;
+      bottom: 245px; }
+      main .visual .visualBtn .arrowBtn {
+        width: 11px;
+        height: 113px;
+        background: url("img/visual_arrow.png") no-repeat center center; }
+      main .visual .visualBtn .next {
+        background: url("img/visual_arrow02.png") no-repeat center center; }
+      main .visual .visualBtn .visualPosition {
+        display: flex;
+        align-items: center;
+        height: 22px;
+        margin: 36px 0; }
+        main .visual .visualBtn .visualPosition span {
+          font-weight: 100;
+          color: #fff;
+          align-self: flex-end; }
+          main .visual .visualBtn .visualPosition span:first-child {
+            font-size: 22px;
+            margin-right: 6px; }
+        main .visual .visualBtn .visualPosition .pause {
+          width: 9px;
+          height: 19px;
+          margin-left: 12px;
+          background: url("img/visual_pause.png") no-repeat center center;
+          transition: .2s; }
+        main .visual .visualBtn .visualPosition .pause.active {
+          background: url("img/visual_play.png") no-repeat center center; }
+
+.indicator {
+  width: 40px;
+  height: 168px;
+  padding: 6px 0;
+  box-sizing: border-box;
+  border-radius: 20px;
+  position: fixed;
+  right: 5%;
+  bottom: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: #00b17e; }
+  .indicator span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    transition: .35s;
+    cursor: pointer; }
+    .indicator span:nth-of-type(1):hover {
+      width: 21px;
+      height: 21px;
+      border-radius: 0%;
+      background: url("img/indi_01.png") no-repeat center center; }
+    .indicator span:nth-of-type(2):hover {
+      width: 21px;
+      height: 21px;
+      border-radius: 0%;
+      background: url("img/indi_02.png") no-repeat center center; }
+    .indicator span:nth-of-type(3):hover {
+      width: 21px;
+      height: 21px;
+      border-radius: 0%;
+      background: url("img/indi_03.png") no-repeat center center; }
+    .indicator span:nth-of-type(4):hover {
+      width: 21px;
+      height: 21px;
+      border-radius: 0%;
+      background: url("img/indi_04.png") no-repeat center center; }
+    .indicator span:nth-of-type(5):hover {
+      width: 21px;
+      height: 21px;
+      border-radius: 0%;
+      background: url("img/indi_05.png") no-repeat center center; }
+  .indicator span.active {
+    width: 21px;
+    height: 21px;
+    border-radius: 0%; }
+
+/*# sourceMappingURL=main.css.map */
