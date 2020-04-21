@@ -188,7 +188,7 @@ main{
     .visualBtn{
         position: absolute;
         left: 60px;
-        bottom: 245px;
+        bottom: 12.7604%;
         .arrowBtn{
             width: 11px;
             height: 113px;
@@ -326,6 +326,11 @@ section.contents{
     display: flex;
     justify-content: space-between;
     .values {
+        @for $i from 1 to 4{
+            &:nth-of-type(#{$i}) figure .valueIcon{
+                background: rgba(255,255,255,0.6) url('img/value_0#{$i}.png') no-repeat center center;
+            }
+        }
         figure{
             display: flex;
             align-items: center;
@@ -334,11 +339,7 @@ section.contents{
                 height: 110px;
                 border-radius: 50%;
             }
-            @for $i from 1 to 4{
-                &:nth-of-type(#{$i}) .valueIcon{
-                    background: rgba(255,255,255,0.6) url('img/value_0#{$i}.png') no-repeat center center;
-                }
-            }
+
             figcaption{
                 margin-left: 35px;
                 line-height: 1.5em;
@@ -477,21 +478,86 @@ footer{
     background-color: #535353;
     .inner{
         width: 67.7083%;
-        height: 155px;
+        height: 100%;
         margin: 0 auto;
         padding: 50px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         box-sizing: border-box;
         >a{
             @include logo();
             @include background("logo.png");
-            float: left;
-            margin-left: 60px;
         }
         .footerInfo{
-            float: left;
+            justify-self: start;
+            .lnb{
+                li{
+                    display: inline-block;
+                    margin:0 30px 28px 0;
+                    position: relative;
+                    color: #fff;
+                    font-size: 14px;
+                    font-weight: 100;
+                    cursor: pointer;
+                    &:after{
+                        @include after(1px,#fff);
+                        height: 12px;
+                        bottom: 1px;
+                        right: -15px;
+                    }
+                    &:last-of-type:after{
+                        display: none;
+                    }
+                }
+            }
+            .companyInfo{
+                margin-bottom: 26px;
+            }
+            p{
+                color: #fff;
+                font-size: 14px;
+                font-weight: 100;
+                line-height:1.500em
+            }
         }
         .familySite{
-            float: right;
+            align-self: flex-start;
+            width: 200px;
+            height: 32px;
+            position: relative;
+            background-color: #fff;
+            a{
+                width: 100%;
+                height: 100%;
+                padding-left: 20px;
+                line-height: 32px;
+                box-sizing: border-box;
+                font-size: 14px;
+                background: url('img/familysite_arrow.png') no-repeat 90% center;
+            }
+            ul{
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: -298px;
+                background: #fff;
+                border: 1px solid #a5a5a5;
+                box-sizing: border-box;
+                li{
+                    width:100%;
+                    height:32px;
+                    border-bottom: 1px solid #a5a5a5;
+                    &:last-of-type{
+                        border-bottom:none;
+                    }
+                    a{
+                       background: none;
+                    }
+                    
+
+                }
+            }
         }
     }
 

@@ -216,7 +216,7 @@ main {
   .visual .visualBtn {
     position: absolute;
     left: 60px;
-    bottom: 245px; }
+    bottom: 12.7604%; }
     .visual .visualBtn .arrowBtn {
       width: 11px;
       height: 113px;
@@ -324,6 +324,12 @@ section.contents {
 .valueList {
   display: flex;
   justify-content: space-between; }
+  .valueList .values:nth-of-type(1) figure .valueIcon {
+    background: rgba(255, 255, 255, 0.6) url("img/value_01.png") no-repeat center center; }
+  .valueList .values:nth-of-type(2) figure .valueIcon {
+    background: rgba(255, 255, 255, 0.6) url("img/value_02.png") no-repeat center center; }
+  .valueList .values:nth-of-type(3) figure .valueIcon {
+    background: rgba(255, 255, 255, 0.6) url("img/value_03.png") no-repeat center center; }
   .valueList .values figure {
     display: flex;
     align-items: center; }
@@ -331,12 +337,6 @@ section.contents {
       width: 110px;
       height: 110px;
       border-radius: 50%; }
-    .valueList .values figure:nth-of-type(1) .valueIcon {
-      background: rgba(255, 255, 255, 0.6) url("img/value_01.png") no-repeat center center; }
-    .valueList .values figure:nth-of-type(2) .valueIcon {
-      background: rgba(255, 255, 255, 0.6) url("img/value_02.png") no-repeat center center; }
-    .valueList .values figure:nth-of-type(3) .valueIcon {
-      background: rgba(255, 255, 255, 0.6) url("img/value_03.png") no-repeat center center; }
     .valueList .values figure figcaption {
       margin-left: 35px;
       line-height: 1.5em;
@@ -456,21 +456,77 @@ footer {
   background-color: #535353; }
   footer .inner {
     width: 67.7083%;
-    height: 155px;
+    height: 100%;
     margin: 0 auto;
     padding: 50px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     box-sizing: border-box; }
     footer .inner > a {
       width: 159px;
       height: 46px;
       text-indent: -9999px;
-      background: url("img/logo.png") no-repeat center center;
-      float: left;
-      margin-left: 60px; }
+      background: url("img/logo.png") no-repeat center center; }
     footer .inner .footerInfo {
-      float: left; }
+      justify-self: start; }
+      footer .inner .footerInfo .lnb li {
+        display: inline-block;
+        margin: 0 30px 28px 0;
+        position: relative;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 100;
+        cursor: pointer; }
+        footer .inner .footerInfo .lnb li:after {
+          display: block;
+          content: '';
+          width: 1px;
+          height: 1px;
+          position: absolute;
+          background: #fff;
+          height: 12px;
+          bottom: 1px;
+          right: -15px; }
+        footer .inner .footerInfo .lnb li:last-of-type:after {
+          display: none; }
+      footer .inner .footerInfo .companyInfo {
+        margin-bottom: 26px; }
+      footer .inner .footerInfo p {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 100;
+        line-height: 1.5em; }
     footer .inner .familySite {
-      float: right; }
+      align-self: flex-start;
+      width: 200px;
+      height: 32px;
+      position: relative;
+      background-color: #fff; }
+      footer .inner .familySite a {
+        width: 100%;
+        height: 100%;
+        padding-left: 20px;
+        line-height: 32px;
+        box-sizing: border-box;
+        font-size: 14px;
+        background: url("img/familysite_arrow.png") no-repeat 90% center; }
+      footer .inner .familySite ul {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: -298px;
+        background: #fff;
+        border: 1px solid #a5a5a5;
+        box-sizing: border-box; }
+        footer .inner .familySite ul li {
+          width: 100%;
+          height: 32px;
+          border-bottom: 1px solid #a5a5a5; }
+          footer .inner .familySite ul li:last-of-type {
+            border-bottom: none; }
+          footer .inner .familySite ul li a {
+            background: none; }
 
 .indicator {
   width: 40px;

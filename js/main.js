@@ -1,7 +1,8 @@
 window.addEventListener('DOMContentLoaded', function () {
     const headerActive = $('header,.depth2,.gnbBox'),
         visualTxt = $('.visualTxt p');
-    let datas, liIdx, slideNum = 1, slideTimer = true, jsonCopy1, jsonCopy2;
+    let datas,windowScroll, liIdx, slideNum = 1, slideTimer = true, jsonCopy1, jsonCopy2,
+    businessTop = $('.business').offset().top;
 
     init(); //초기화 함수
     //제이슨 데이터 로드
@@ -16,6 +17,41 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    function scrollManager(){
+        windowScroll = $(this).scrollTop();
+        headerFixed();
+        // console.log($('.up').eq(0));
+        for(var i =0;i<$('.up').length;i++){
+            console.log(i)
+       console.log($('.up').eq(i));
+
+            console.log($('.up').eq(i).offset().top <= windowScroll);
+
+        }
+        
+    }
+    function headerFixed(){
+        if(businessTop<=windowScroll){
+            $('header').addClass('active');
+            $('header').css({
+                position : 'fixed'
+            });
+        }else{
+            $('header').removeClass('active');
+            $('header').css({
+                position : 'absolute'
+            });
+        }
+    }
+    //스크롤 이벤트
+    $(window).on('scroll',scrollManager);
+    //글로벌내비 마우스오버
+    $('.depth1>li').on('mouseenter', depth2Down);
+    $('.depth1').on('mouseleave', depth2Down);
+    //슬라이드 버튼 클릭
+    $('.next').on('click', slideClick);
+    $('.prev').on('click', slideClick);
+    $('.pause').on('click', pause);
     function init() { // 2depth 슬라이드업, 비주얼 슬라이드 정렬
         $('.depth2,.gnbBox').slideUp();
         $('.visualSlide ul li').each(function (i) {
@@ -25,13 +61,6 @@ window.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
-    //글로벌내비 마우스오버
-    $('.depth1>li').on('mouseenter', depth2Down);
-    $('.depth1').on('mouseleave', depth2Down);
-    //슬라이드 버튼 클릭
-    $('.next').on('click', slideClick);
-    $('.prev').on('click', slideClick);
-    $('.pause').on('click', pause);
     function depth2Down() {
         if (event.type == "mouseover") {
             $('header').addClass('active');
