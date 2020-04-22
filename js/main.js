@@ -1,11 +1,13 @@
 window.addEventListener('DOMContentLoaded', function () {
     const visualTxt = $('.visualTxt p');
-    let datas, windowScroll, liIdx, jsonCopy1, jsonCopy2, docHeight, scrollLength, faqInterval, slideInterval, indiIdx,
+    let datas, windowScroll, liIdx, jsonCopy1, 
+    jsonCopy2, docHeight, scrollLength, faqInterval, 
+    slideInterval, indiIdx,
         slideNum = 1, slideTimer = true,
         businessTop = $('.business').offset().top,
         windowHeight = $(window).innerHeight();
 
-    init(); //초기화 함수
+    init(); // 초기화 : 비주얼 슬라이드 정렬, FAQ 루프 실행
 
     $.ajax({ //제이슨 데이터 로드
         url: "main.json",
@@ -25,37 +27,32 @@ window.addEventListener('DOMContentLoaded', function () {
     //FAQ 마우스오버 시 포즈
     $('.questionList').on('mouseenter', faqMouse);
     $('.questionList').on('mouseleave', faqMouse);
-    //슬라이드 버튼 클릭
+    //슬라이드 버튼 클릭 - 슬라이드 이동
     $('.next').on('click', slideClick);
     $('.prev').on('click', slideClick);
     $('.pause').on('click', pause);
-    $('.familySite > a').on('click', familyClick);
-    $('.indicator span').on('click', scrollMove);
+    $('.indicator span').on('click', scrollMove); //인디게이터 클릭시 해당위치로 스크롤 이동
     $('.top').on('click', scrollTop);
 
 
-    function init() { // 2depth 슬라이드업, 비주얼 슬라이드 정렬
-        $('.depth2,.gnbBox').slideUp();
+    function init() { 
         $('.visualSlide ul li').each(function (i) {
             liIdx = $(this).index();
             $(this).css({
                 left: 100 * liIdx + "%"
             });
         });
-        $('.familySite ul').slideUp();
         faqLoop();
     }
-
     function scrollManager() {
         docHeight = $(document).height();
         windowScroll = $(this).scrollTop();
         scrollLength = docHeight - windowHeight;
-        headerFixed();
-        contentsUp();
-        contentsIn();
-        topBtnShow();
-        indiChange();
-
+        headerFixed(); // 스크롤 비주얼 아래로 내려오면 헤더 고정
+        contentsUp(); //서브카피 애니메이션
+        contentsIn(); //비즈니스 컨텐츠 애니메이션
+        topBtnShow(); //스크롤 양이 문서전체 70% 넘으면 top버튼 show
+        indiChange(); //현재 스크롤 위치에 따라 인디게이터 변경
     }
     function headerFixed() {
         if (businessTop <= windowScroll) {
@@ -80,7 +77,7 @@ window.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-    function contentsIn() {
+    function contentsIn() { 
         $('.leftIn,.rightIn').each(function () {
             if ($(this).offset().top - windowHeight <= windowScroll) {
                 $(this).css({
@@ -198,25 +195,16 @@ window.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
-    function familyClick() {
-        event.preventDefault();
-        $(this).toggleClass('active');
-        if ($(this).hasClass('active')) {
-            $('.familySite ul').slideDown();
-        } else {
-            $('.familySite ul').slideUp();
-        }
-    }
     function scrollTop() {
         event.preventDefault();
-        $("html").animate({ //스크롤 애니메이션 
+        $("html").animate({ 
             scrollTop: 0
         }, 800);
     }
     function scrollMove() {
         indiIdx = $(this).index();
         sectionOffset = $('section').eq(indiIdx).offset().top;
-        $("html").animate({ //스크롤 애니메이션 
+        $("html").animate({ 
             scrollTop: sectionOffset
         }, 500);
     }

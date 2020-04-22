@@ -62,10 +62,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.wrap {
-  width: 100%;
-  overflow: hidden; }
-
 header {
   width: 100%;
   background: rgba(255, 255, 255, 0.5);
@@ -90,7 +86,7 @@ header {
       width: 159px;
       height: 46px;
       text-indent: -9999px;
-      background: url("img/logo.png") no-repeat center center; }
+      background: url("../img/logo.png") no-repeat center center; }
     header .headerInner nav {
       height: 100%; }
       header .headerInner nav .depth1 {
@@ -165,6 +161,112 @@ header {
         left: 0;
         transition: .35s; }
 
+footer {
+  width: 100%;
+  height: 260px;
+  background-color: #535353; }
+  footer .inner {
+    width: 67.7083%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 50px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box; }
+    footer .inner > a {
+      width: 159px;
+      height: 46px;
+      text-indent: -9999px;
+      background: url("../img/logo.png") no-repeat center center; }
+    footer .inner .footerInfo {
+      justify-self: start; }
+      footer .inner .footerInfo .lnb li {
+        display: inline-block;
+        margin: 0 30px 28px 0;
+        position: relative;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 100;
+        cursor: pointer; }
+        footer .inner .footerInfo .lnb li:after {
+          display: block;
+          content: '';
+          width: 1px;
+          height: 1px;
+          position: absolute;
+          background: #fff;
+          height: 12px;
+          bottom: 1px;
+          right: -15px; }
+        footer .inner .footerInfo .lnb li:last-of-type:after {
+          display: none; }
+      footer .inner .footerInfo .companyInfo {
+        margin-bottom: 26px; }
+      footer .inner .footerInfo p {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 100;
+        line-height: 1.5em; }
+    footer .inner .familySite {
+      align-self: flex-start;
+      width: 200px;
+      height: 32px;
+      position: relative;
+      background-color: #fff;
+      box-shadow: 3px 3px 6px 6px rgba(0, 0, 0, 0.1); }
+      footer .inner .familySite a {
+        width: 100%;
+        height: 100%;
+        padding-left: 20px;
+        line-height: 32px;
+        box-sizing: border-box;
+        font-size: 14px;
+        background: url("../img/familysite_arrow.png") no-repeat 90% center; }
+        footer .inner .familySite a.active {
+          background: url("../img/familysite_arrow_active.png") no-repeat 90% center; }
+      footer .inner .familySite ul {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background: #fff;
+        border: 1px solid #a5a5a5;
+        box-sizing: border-box;
+        opacity: .8; }
+        footer .inner .familySite ul li {
+          width: 100%;
+          height: 28px;
+          border-bottom: 1px solid #a5a5a5;
+          box-sizing: border-box; }
+          footer .inner .familySite ul li:last-of-type {
+            border-bottom: none; }
+          footer .inner .familySite ul li a {
+            font-size: 12px;
+            line-height: 28px;
+            background: none; }
+
+.top {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 10%;
+  right: 4%;
+  overflow: hidden;
+  display: none; }
+  .top a {
+    width: 100%;
+    height: 100%;
+    background: #00b17e url("../img/top_arrow.png") no-repeat center 30%;
+    text-align: center;
+    line-height: 85px;
+    color: #fff; }
+
+.wrap {
+  width: 100%;
+  overflow: hidden; }
+
 main {
   width: 100%; }
 
@@ -227,9 +329,9 @@ main {
     .visual .visualBtn .arrowBtn {
       width: 11px;
       height: 113px;
-      background: url("img/visual_arrow.png") no-repeat center center; }
+      background: url("../img/visual_arrow.png") no-repeat center center; }
     .visual .visualBtn .next {
-      background: url("img/visual_arrow02.png") no-repeat center center; }
+      background: url("../img/visual_arrow02.png") no-repeat center center; }
     .visual .visualBtn .visualPosition {
       display: flex;
       align-items: center;
@@ -246,10 +348,10 @@ main {
         width: 9px;
         height: 19px;
         margin-left: 12px;
-        background: url("img/visual_pause.png") no-repeat center center;
+        background: url("../img/visual_pause.png") no-repeat center center;
         transition: .2s; }
       .visual .visualBtn .visualPosition .pause.active {
-        background: url("img/visual_play.png") no-repeat center center; }
+        background: url("../img/visual_play.png") no-repeat center center; }
 
 section.contents {
   width: 100%;
@@ -333,7 +435,7 @@ section.contents {
 
 .value {
   height: 360px;
-  background: url("img/value_back.jpg") no-repeat center center;
+  background: url("../img/value_back.jpg") no-repeat center center;
   background-attachment: fixed; }
   .value .inner .subCopy h2 {
     color: #fff; }
@@ -345,11 +447,11 @@ section.contents {
     flex: 0 0 auto;
     display: inline-block; }
     .valueList .values:nth-of-type(1) figure .valueIcon {
-      background: rgba(255, 255, 255, 0.6) url("img/value_01.png") no-repeat center center; }
+      background: rgba(255, 255, 255, 0.6) url("../img/value_01.png") no-repeat center center; }
     .valueList .values:nth-of-type(2) figure .valueIcon {
-      background: rgba(255, 255, 255, 0.6) url("img/value_02.png") no-repeat center center; }
+      background: rgba(255, 255, 255, 0.6) url("../img/value_02.png") no-repeat center center; }
     .valueList .values:nth-of-type(3) figure .valueIcon {
-      background: rgba(255, 255, 255, 0.6) url("img/value_03.png") no-repeat center center; }
+      background: rgba(255, 255, 255, 0.6) url("../img/value_03.png") no-repeat center center; }
     .valueList .values.up {
       transform: translateY(50px);
       opacity: 0;
@@ -410,15 +512,15 @@ section.contents {
         transform: translateY(100%);
         transition: .35s; }
     .processList li:nth-of-type(1) figure {
-      background: url("img/process_01.jpg") no-repeat center center; }
+      background: url("../img/process_01.jpg") no-repeat center center; }
     .processList li:nth-of-type(2) figure {
-      background: url("img/process_02.jpg") no-repeat center center; }
+      background: url("../img/process_02.jpg") no-repeat center center; }
     .processList li:nth-of-type(3) figure {
-      background: url("img/process_03.jpg") no-repeat center center; }
+      background: url("../img/process_03.jpg") no-repeat center center; }
     .processList li:nth-of-type(4) figure {
-      background: url("img/process_04.jpg") no-repeat center center; }
+      background: url("../img/process_04.jpg") no-repeat center center; }
     .processList li:nth-of-type(5) figure {
-      background: url("img/process_05.jpg") no-repeat center center; }
+      background: url("../img/process_05.jpg") no-repeat center center; }
 
 .processCopy p {
   text-align: center;
@@ -484,91 +586,6 @@ section.map {
       width: 67%;
       height: 100%; }
 
-footer {
-  width: 100%;
-  height: 260px;
-  background-color: #535353; }
-  footer .inner {
-    width: 67.7083%;
-    height: 100%;
-    margin: 0 auto;
-    padding: 50px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box; }
-    footer .inner > a {
-      width: 159px;
-      height: 46px;
-      text-indent: -9999px;
-      background: url("img/logo.png") no-repeat center center; }
-    footer .inner .footerInfo {
-      justify-self: start; }
-      footer .inner .footerInfo .lnb li {
-        display: inline-block;
-        margin: 0 30px 28px 0;
-        position: relative;
-        color: #fff;
-        font-size: 14px;
-        font-weight: 100;
-        cursor: pointer; }
-        footer .inner .footerInfo .lnb li:after {
-          display: block;
-          content: '';
-          width: 1px;
-          height: 1px;
-          position: absolute;
-          background: #fff;
-          height: 12px;
-          bottom: 1px;
-          right: -15px; }
-        footer .inner .footerInfo .lnb li:last-of-type:after {
-          display: none; }
-      footer .inner .footerInfo .companyInfo {
-        margin-bottom: 26px; }
-      footer .inner .footerInfo p {
-        color: #fff;
-        font-size: 14px;
-        font-weight: 100;
-        line-height: 1.5em; }
-    footer .inner .familySite {
-      align-self: flex-start;
-      width: 200px;
-      height: 32px;
-      position: relative;
-      background-color: #fff;
-      box-shadow: 3px 3px 6px 6px rgba(0, 0, 0, 0.1); }
-      footer .inner .familySite a {
-        width: 100%;
-        height: 100%;
-        padding-left: 20px;
-        line-height: 32px;
-        box-sizing: border-box;
-        font-size: 14px;
-        background: url("img/familysite_arrow.png") no-repeat 90% center; }
-        footer .inner .familySite a.active {
-          background: url("img/familysite_arrow_active.png") no-repeat 90% center; }
-      footer .inner .familySite ul {
-        width: 100%;
-        position: absolute;
-        left: 0;
-        top: 100%;
-        background: #fff;
-        border: 1px solid #a5a5a5;
-        box-sizing: border-box;
-        opacity: .8; }
-        footer .inner .familySite ul li {
-          width: 100%;
-          height: 28px;
-          border-bottom: 1px solid #a5a5a5;
-          box-sizing: border-box; }
-          footer .inner .familySite ul li:last-of-type {
-            border-bottom: none; }
-          footer .inner .familySite ul li a {
-            font-size: 12px;
-            line-height: 28px;
-            background: none; }
-
 .indicator {
   width: 40px;
   height: 168px;
@@ -594,68 +611,51 @@ footer {
       width: 21px;
       height: 21px;
       border-radius: 0%;
-      background: url("img/indi_01.png") no-repeat center center; }
+      background: url("../img/indi_01.png") no-repeat center center; }
     .indicator span.active:nth-of-type(2) {
       width: 21px;
       height: 21px;
       border-radius: 0%;
-      background: url("img/indi_02.png") no-repeat center center; }
+      background: url("../img/indi_02.png") no-repeat center center; }
     .indicator span.active:nth-of-type(3) {
       width: 21px;
       height: 21px;
       border-radius: 0%;
-      background: url("img/indi_03.png") no-repeat center center; }
+      background: url("../img/indi_03.png") no-repeat center center; }
     .indicator span.active:nth-of-type(4) {
       width: 21px;
       height: 21px;
       border-radius: 0%;
-      background: url("img/indi_04.png") no-repeat center center; }
+      background: url("../img/indi_04.png") no-repeat center center; }
     .indicator span.active:nth-of-type(5) {
       width: 21px;
       height: 21px;
       border-radius: 0%;
-      background: url("img/indi_05.png") no-repeat center center; }
+      background: url("../img/indi_05.png") no-repeat center center; }
     .indicator span:nth-of-type(1):hover {
       width: 21px;
       height: 21px;
       border-radius: 0%;
-      background: url("img/indi_01.png") no-repeat center center; }
+      background: url("../img/indi_01.png") no-repeat center center; }
     .indicator span:nth-of-type(2):hover {
       width: 21px;
       height: 21px;
       border-radius: 0%;
-      background: url("img/indi_02.png") no-repeat center center; }
+      background: url("../img/indi_02.png") no-repeat center center; }
     .indicator span:nth-of-type(3):hover {
       width: 21px;
       height: 21px;
       border-radius: 0%;
-      background: url("img/indi_03.png") no-repeat center center; }
+      background: url("../img/indi_03.png") no-repeat center center; }
     .indicator span:nth-of-type(4):hover {
       width: 21px;
       height: 21px;
       border-radius: 0%;
-      background: url("img/indi_04.png") no-repeat center center; }
+      background: url("../img/indi_04.png") no-repeat center center; }
     .indicator span:nth-of-type(5):hover {
       width: 21px;
       height: 21px;
       border-radius: 0%;
-      background: url("img/indi_05.png") no-repeat center center; }
-
-.top {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  position: fixed;
-  bottom: 10%;
-  right: 4%;
-  overflow: hidden;
-  display: none; }
-  .top a {
-    width: 100%;
-    height: 100%;
-    background: #00b17e url("img/top_arrow.png") no-repeat center 30%;
-    text-align: center;
-    line-height: 85px;
-    color: #fff; }
+      background: url("../img/indi_05.png") no-repeat center center; }
 
 /*# sourceMappingURL=main.css.map */

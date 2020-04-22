@@ -1,0 +1,24 @@
+$color : #00b17e;
+@mixin logo(){
+    width: 159px;
+    height: 46px;
+    text-indent: -9999px;
+}
+@mixin after($width,$back){
+        display: block;
+        content: '';
+        width: $width;
+        height: 1px;
+        position: absolute;
+        background: $back;
+}
+@mixin background($url){
+    background: url("../img/"+$url)no-repeat center center;
+}
+@mixin up(){
+    &.up{
+        transform: translateY(50px);
+        opacity: 0;
+        transition: .5s ease-in;
+    }
+}
