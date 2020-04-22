@@ -1,12 +1,13 @@
 window.addEventListener('DOMContentLoaded', function () {
-    const headerActive = $('header,.depth2,.gnbBox'),
-        visualTxt = $('.visualTxt p');
-    let datas,windowScroll, liIdx, slideNum = 1, slideTimer = true, jsonCopy1, jsonCopy2,
-    businessTop = $('.business').offset().top;
+    const visualTxt = $('.visualTxt p');
+    let datas, windowScroll, liIdx, jsonCopy1, jsonCopy2, docHeight, scrollLength, faqInterval, slideInterval, indiIdx,
+        slideNum = 1, slideTimer = true,
+        businessTop = $('.business').offset().top,
+        windowHeight = $(window).innerHeight();
 
     init(); //초기화 함수
-    //제이슨 데이터 로드
-    $.ajax({
+
+    $.ajax({ //제이슨 데이터 로드
         url: "main.json",
         type: "GET",
         dataType: "json",
@@ -17,41 +18,22 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    function scrollManager(){
-        windowScroll = $(this).scrollTop();
-        headerFixed();
-        // console.log($('.up').eq(0));
-        for(var i =0;i<$('.up').length;i++){
-            console.log(i)
-       console.log($('.up').eq(i));
 
-            console.log($('.up').eq(i).offset().top <= windowScroll);
-
-        }
-        
-    }
-    function headerFixed(){
-        if(businessTop<=windowScroll){
-            $('header').addClass('active');
-            $('header').css({
-                position : 'fixed'
-            });
-        }else{
-            $('header').removeClass('active');
-            $('header').css({
-                position : 'absolute'
-            });
-        }
-    }
     //스크롤 이벤트
-    $(window).on('scroll',scrollManager);
-    //글로벌내비 마우스오버
-    $('.depth1>li').on('mouseenter', depth2Down);
-    $('.depth1').on('mouseleave', depth2Down);
+    $(window).on('scroll', scrollManager);
+    
+    //FAQ 마우스오버 시 포즈
+    $('.questionList').on('mouseenter', faqMouse);
+    $('.questionList').on('mouseleave', faqMouse);
     //슬라이드 버튼 클릭
     $('.next').on('click', slideClick);
     $('.prev').on('click', slideClick);
     $('.pause').on('click', pause);
+    $('.familySite > a').on('click', familyClick);
+    $('.indicator span').on('click', scrollMove);
+    $('.top').on('click', scrollTop);
+
+
     function init() { // 2depth 슬라이드업, 비주얼 슬라이드 정렬
         $('.depth2,.gnbBox').slideUp();
         $('.visualSlide ul li').each(function (i) {
@@ -60,27 +42,76 @@ window.addEventListener('DOMContentLoaded', function () {
                 left: 100 * liIdx + "%"
             });
         });
+        $('.familySite ul').slideUp();
+        faqLoop();
     }
-    function depth2Down() {
-        if (event.type == "mouseover") {
+
+    function scrollManager() {
+        docHeight = $(document).height();
+        windowScroll = $(this).scrollTop();
+        scrollLength = docHeight - windowHeight;
+        headerFixed();
+        contentsUp();
+        contentsIn();
+        topBtnShow();
+        indiChange();
+
+    }
+    function headerFixed() {
+        if (businessTop <= windowScroll) {
             $('header').addClass('active');
-            $('.navLine').css({
-                left: $(this).offset().left
-            }, 350);
-            $('.depth2,.gnbBox').slideDown(350);
+            $('header').css({
+                position: 'fixed'
+            });
         } else {
             $('header').removeClass('active');
-            $('.depth2,.gnbBox').slideUp(350);
+            $('header').css({
+                position: 'absolute'
+            });
         }
     }
+    function contentsUp() {
+        $('.up').each(function () {
+            if ($(this).offset().top - windowHeight <= windowScroll) {
+                $(this).css({
+                    transform: 'translateY(0)',
+                    opacity: 1
+                });
+            }
+        });
+    }
+    function contentsIn() {
+        $('.leftIn,.rightIn').each(function () {
+            if ($(this).offset().top - windowHeight <= windowScroll) {
+                $(this).css({
+                    transform: 'translateX(0)',
+                    opacity: 1
+                });
+            }
+        });
+    }
+    function topBtnShow() {
+        if (scrollLength * 0.7 <= windowScroll) {
+            $('.top').show(500);
+        } else {
+            $('.top').hide(500);
+        }
+    }
+    function indiChange() {
+        $('section').each(function (i) {
+            indiIdx = i;
+            if ($(this).offset().top / 1.5 < windowScroll) {
+                $('.indicator span').eq(indiIdx).addClass('active').siblings().removeClass('active');
+            }
+        });
+    }
+    
     function slideClick() {
         if (slideTimer) { //슬라이드 이동하는 중 중복 클릭 방지
             slideTimer = false;
-
             clearInterval(slideInterval);
             slideManager($(this).attr('class').replace(' arrowBtn', ""));
             slideLoop();
-
             setTimeout(function () {
                 slideTimer = true;
             }, 800);
@@ -102,7 +133,7 @@ window.addEventListener('DOMContentLoaded', function () {
             limitNum = 5;
             resetNum = 1;
         }
-        copyInnerHtml();
+        copyInnerHtml(); //메인카피 변경 함수
         if (slideNum == limitNum) {
             slideAni(".8s");
             setTimeout(function () {
@@ -135,17 +166,66 @@ window.addEventListener('DOMContentLoaded', function () {
     }
     function pause() {
         $(this).toggleClass('active');
-        if (!$(this).hasClass('active')) {
-            slideLoop();
-        } else {
+        if ($(this).hasClass('active')) {
             clearInterval(slideInterval);
+        } else {
+            slideLoop();
         }
     }
-    function copyInnerHtml() { //메인카피 변경 함수
+    function copyInnerHtml() {
         jsonCopy1 = datas.mainCopy[slideNum].copy1;
         jsonCopy2 = datas.mainCopy[slideNum].copy2;
         visualTxt.eq(0).html(jsonCopy1);
         visualTxt.eq(1).html(jsonCopy2);
     }
+    function faqMouse() { //FAQ 마우스 오버시 루프 일시정지
+        if (event.type == "mouseover") {
+            clearInterval(faqInterval);
+        } else {
+            faqLoop();
+        }
+    }
+    function faqLoop() { //FAQ 루프 함수
+        faqInterval = setInterval(faqAni, 3500);
+    }
+    function faqAni() { //FAQ 루프 애니메이션
+        $('.questionList').animate({
+            top: -100 + '%'
+        }, function () {
+            $('.questionList').append($('.questionList li').eq(0));
+            $('.questionList').css({
+                top: 0 + '%'
+            });
+        });
+    }
+    function familyClick() {
+        event.preventDefault();
+        $(this).toggleClass('active');
+        if ($(this).hasClass('active')) {
+            $('.familySite ul').slideDown();
+        } else {
+            $('.familySite ul').slideUp();
+        }
+    }
+    function scrollTop() {
+        event.preventDefault();
+        $("html").animate({ //스크롤 애니메이션 
+            scrollTop: 0
+        }, 800);
+    }
+    function scrollMove() {
+        indiIdx = $(this).index();
+        sectionOffset = $('section').eq(indiIdx).offset().top;
+        $("html").animate({ //스크롤 애니메이션 
+            scrollTop: sectionOffset
+        }, 500);
+    }
 
+
+    // history.pushState({key:idx},'','all');
+
+    // window.onpopstate = function(e){
+    //     //e.state.key
+    //     func(e.state.key)
+    // }
 });

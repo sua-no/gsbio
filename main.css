@@ -127,7 +127,13 @@ header {
       border-radius: 20px;
       border: 1px solid #00b17e;
       box-sizing: border-box;
-      text-align: center; }
+      text-align: center;
+      transition: .35s; }
+      header .headerInner .hire:hover {
+        background: #00b17e; }
+        header .headerInner .hire:hover a {
+          color: #fff;
+          font-weight: 100; }
       header .headerInner .hire a {
         line-height: 34px; }
     header .headerInner .menuBtn {
@@ -216,7 +222,8 @@ main {
   .visual .visualBtn {
     position: absolute;
     left: 60px;
-    bottom: 12.7604%; }
+    left: 3.125%;
+    bottom: calc(50% - 161px); }
     .visual .visualBtn .arrowBtn {
       width: 11px;
       height: 113px;
@@ -254,6 +261,10 @@ section.contents {
     section.contents .inner .subCopy {
       margin-bottom: 80px;
       text-align: center; }
+      section.contents .inner .subCopy.up {
+        transform: translateY(50px);
+        opacity: 0;
+        transition: .5s ease-in; }
       section.contents .inner .subCopy h2 {
         font-size: 1.875em;
         font-weight: bold; }
@@ -265,7 +276,13 @@ section.contents {
 .businessList {
   width: 100%; }
   .businessList li {
-    width: 100%; }
+    width: 100%;
+    opacity: 0;
+    transition: 1.2s ease-in-out; }
+    .businessList li.leftIn {
+      transform: translateX(-100%); }
+    .businessList li.rightIn {
+      transform: translateX(100%); }
     .businessList li figure {
       width: 100%;
       display: flex; }
@@ -324,24 +341,35 @@ section.contents {
 .valueList {
   display: flex;
   justify-content: space-between; }
-  .valueList .values:nth-of-type(1) figure .valueIcon {
-    background: rgba(255, 255, 255, 0.6) url("img/value_01.png") no-repeat center center; }
-  .valueList .values:nth-of-type(2) figure .valueIcon {
-    background: rgba(255, 255, 255, 0.6) url("img/value_02.png") no-repeat center center; }
-  .valueList .values:nth-of-type(3) figure .valueIcon {
-    background: rgba(255, 255, 255, 0.6) url("img/value_03.png") no-repeat center center; }
-  .valueList .values figure {
-    display: flex;
-    align-items: center; }
-    .valueList .values figure .valueIcon {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%; }
-    .valueList .values figure figcaption {
-      margin-left: 35px;
-      line-height: 1.5em;
-      font-weight: 600;
-      color: #fff; }
+  .valueList .values {
+    flex: 0 0 auto;
+    display: inline-block; }
+    .valueList .values:nth-of-type(1) figure .valueIcon {
+      background: rgba(255, 255, 255, 0.6) url("img/value_01.png") no-repeat center center; }
+    .valueList .values:nth-of-type(2) figure .valueIcon {
+      background: rgba(255, 255, 255, 0.6) url("img/value_02.png") no-repeat center center; }
+    .valueList .values:nth-of-type(3) figure .valueIcon {
+      background: rgba(255, 255, 255, 0.6) url("img/value_03.png") no-repeat center center; }
+    .valueList .values.up {
+      transform: translateY(50px);
+      opacity: 0;
+      transition: .5s ease-in; }
+    .valueList .values:nth-of-type(2) {
+      transition-delay: .4s; }
+    .valueList .values:nth-of-type(3) {
+      transition-delay: .8s; }
+    .valueList .values figure {
+      display: flex;
+      align-items: center; }
+      .valueList .values figure .valueIcon {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%; }
+      .valueList .values figure figcaption {
+        margin-left: 35px;
+        line-height: 1.5em;
+        font-weight: 600;
+        color: #fff; }
 
 .processList {
   width: 100%;
@@ -350,19 +378,22 @@ section.contents {
   justify-content: space-between;
   margin-bottom: 90px; }
   .processList li {
-    width: 200px;
-    height: 200px;
+    flex: 0 0 auto;
+    width: 10.4166vw;
+    height: 10.4166vw;
     border-radius: 50%;
     border: 10px solid #f5f5f5;
     overflow: hidden;
     transition: .35s; }
-    .processList li:hover {
-      transform: rotateY(180deg); }
-      .processList li:hover figure figcaption {
-        transform: rotateY(180deg);
-        opacity: 1; }
+    .processList li.up {
+      transform: translateY(50px);
+      opacity: 0;
+      transition: .5s ease-in; }
     .processList li:nth-of-type(2n) {
       align-self: flex-end; }
+    .processList li:hover figure figcaption {
+      transform: translateY(0);
+      opacity: 1; }
     .processList li figure {
       width: 100%;
       height: 100%; }
@@ -372,10 +403,11 @@ section.contents {
         font-size: 24px;
         font-weight: bold;
         text-align: center;
-        line-height: 200px;
+        line-height: 10vw;
         color: #fff;
         background-color: rgba(0, 0, 0, 0.6);
         opacity: 0;
+        transform: translateY(100%);
         transition: .35s; }
     .processList li:nth-of-type(1) figure {
       background: url("img/process_01.jpg") no-repeat center center; }
@@ -389,6 +421,7 @@ section.contents {
       background: url("img/process_05.jpg") no-repeat center center; }
 
 .processCopy p {
+  text-align: center;
   line-height: 1.5em; }
   .processCopy p span {
     font-weight: bold;
@@ -403,17 +436,18 @@ section.contents {
     height: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: flex-start;
-    align-items: center; }
+    align-items: center;
+    position: relative;
+    overflow: hidden; }
     .faq .inner h3 {
-      align-self: flex-start;
-      margin-right: 75px;
       line-height: 60px;
       font-size: 1.500em;
       font-weight: bold; }
     .faq .inner .questionList {
       height: 100%;
-      overflow: hidden; }
+      position: absolute;
+      left: 80px;
+      top: 0; }
       .faq .inner .questionList:hover li {
         text-decoration: underline;
         cursor: pointer; }
@@ -502,7 +536,8 @@ footer {
       width: 200px;
       height: 32px;
       position: relative;
-      background-color: #fff; }
+      background-color: #fff;
+      box-shadow: 3px 3px 6px 6px rgba(0, 0, 0, 0.1); }
       footer .inner .familySite a {
         width: 100%;
         height: 100%;
@@ -511,21 +546,27 @@ footer {
         box-sizing: border-box;
         font-size: 14px;
         background: url("img/familysite_arrow.png") no-repeat 90% center; }
+        footer .inner .familySite a.active {
+          background: url("img/familysite_arrow_active.png") no-repeat 90% center; }
       footer .inner .familySite ul {
         width: 100%;
         position: absolute;
         left: 0;
-        top: -298px;
+        top: 100%;
         background: #fff;
         border: 1px solid #a5a5a5;
-        box-sizing: border-box; }
+        box-sizing: border-box;
+        opacity: .8; }
         footer .inner .familySite ul li {
           width: 100%;
-          height: 32px;
-          border-bottom: 1px solid #a5a5a5; }
+          height: 28px;
+          border-bottom: 1px solid #a5a5a5;
+          box-sizing: border-box; }
           footer .inner .familySite ul li:last-of-type {
             border-bottom: none; }
           footer .inner .familySite ul li a {
+            font-size: 12px;
+            line-height: 28px;
             background: none; }
 
 .indicator {
@@ -536,7 +577,7 @@ footer {
   border-radius: 20px;
   position: fixed;
   right: 5%;
-  bottom: 45%;
+  bottom: calc(50% - 84px);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -549,6 +590,31 @@ footer {
     background: #fff;
     transition: .35s;
     cursor: pointer; }
+    .indicator span.active:nth-of-type(1) {
+      width: 21px;
+      height: 21px;
+      border-radius: 0%;
+      background: url("img/indi_01.png") no-repeat center center; }
+    .indicator span.active:nth-of-type(2) {
+      width: 21px;
+      height: 21px;
+      border-radius: 0%;
+      background: url("img/indi_02.png") no-repeat center center; }
+    .indicator span.active:nth-of-type(3) {
+      width: 21px;
+      height: 21px;
+      border-radius: 0%;
+      background: url("img/indi_03.png") no-repeat center center; }
+    .indicator span.active:nth-of-type(4) {
+      width: 21px;
+      height: 21px;
+      border-radius: 0%;
+      background: url("img/indi_04.png") no-repeat center center; }
+    .indicator span.active:nth-of-type(5) {
+      width: 21px;
+      height: 21px;
+      border-radius: 0%;
+      background: url("img/indi_05.png") no-repeat center center; }
     .indicator span:nth-of-type(1):hover {
       width: 21px;
       height: 21px;
@@ -574,31 +640,6 @@ footer {
       height: 21px;
       border-radius: 0%;
       background: url("img/indi_05.png") no-repeat center center; }
-  .indicator span.active:nth-of-type(1):hover {
-    width: 21px;
-    height: 21px;
-    border-radius: 0%;
-    background: url("img/indi_01.png") no-repeat center center; }
-  .indicator span.active:nth-of-type(2):hover {
-    width: 21px;
-    height: 21px;
-    border-radius: 0%;
-    background: url("img/indi_02.png") no-repeat center center; }
-  .indicator span.active:nth-of-type(3):hover {
-    width: 21px;
-    height: 21px;
-    border-radius: 0%;
-    background: url("img/indi_03.png") no-repeat center center; }
-  .indicator span.active:nth-of-type(4):hover {
-    width: 21px;
-    height: 21px;
-    border-radius: 0%;
-    background: url("img/indi_04.png") no-repeat center center; }
-  .indicator span.active:nth-of-type(5):hover {
-    width: 21px;
-    height: 21px;
-    border-radius: 0%;
-    background: url("img/indi_05.png") no-repeat center center; }
 
 .top {
   width: 70px;
@@ -607,7 +648,8 @@ footer {
   position: fixed;
   bottom: 10%;
   right: 4%;
-  overflow: hidden; }
+  overflow: hidden;
+  display: none; }
   .top a {
     width: 100%;
     height: 100%;

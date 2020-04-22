@@ -16,6 +16,13 @@ $color : #00b17e;
 @mixin background($url){
     background: url("img/"+$url)no-repeat center center;
 }
+@mixin up(){
+    &.up{
+        transform: translateY(50px);
+        opacity: 0;
+        transition: .5s ease-in;
+    }
+}
 .wrap{
     width: 100%;
     overflow: hidden;
@@ -91,6 +98,14 @@ header{
             border: 1px solid #00b17e;
             box-sizing: border-box;
             text-align: center;
+            transition: .35s;
+            &:hover{
+                background: $color;
+                a{
+                    color: #fff;
+                    font-weight: 100;
+                }
+            }
             a{
                 line-height: 34px;
             }
@@ -188,7 +203,8 @@ main{
     .visualBtn{
         position: absolute;
         left: 60px;
-        bottom: 12.7604%;
+        left: 3.125%;
+        bottom: calc(50% - 161px);
         .arrowBtn{
             width: 11px;
             height: 113px;
@@ -234,6 +250,7 @@ section.contents{
         .subCopy{
             margin-bottom: 80px;
             text-align: center;
+            @include up();
             h2{
                 font-size: 1.875em;
                 font-weight: bold;
@@ -250,6 +267,14 @@ section.contents{
     width: 100%;
     li{
         width: 100%;
+        opacity: 0;
+        transition: 1.2s ease-in-out;
+        &.leftIn{
+            transform: translateX(-100%);  
+        }
+        &.rightIn{
+            transform: translateX(100%);  
+        }
         figure{
             width: 100%;
             display: flex;
@@ -326,10 +351,19 @@ section.contents{
     display: flex;
     justify-content: space-between;
     .values {
+        flex: 0 0 auto;
+        display: inline-block;
         @for $i from 1 to 4{
             &:nth-of-type(#{$i}) figure .valueIcon{
                 background: rgba(255,255,255,0.6) url('img/value_0#{$i}.png') no-repeat center center;
             }
+        }
+        @include up();
+        &:nth-of-type(2){
+            transition-delay: .4s;
+        }
+        &:nth-of-type(3){
+            transition-delay: .8s;
         }
         figure{
             display: flex;
@@ -339,7 +373,6 @@ section.contents{
                 height: 110px;
                 border-radius: 50%;
             }
-
             figcaption{
                 margin-left: 35px;
                 line-height: 1.5em;
@@ -356,22 +389,23 @@ section.contents{
     justify-content: space-between;
     margin-bottom: 90px;
     li{
-        width: 200px;
-        height: 200px;
+        flex: 0 0 auto;
+        width: 10.4166vw;
+        height:10.4166vw;
         border-radius: 50%;
         border: 10px solid #f5f5f5;
         overflow: hidden;
         transition: .35s;
-        &:hover{
-            transform: rotateY(180deg);
-            figure figcaption{
-                transform: rotateY(180deg);
-                opacity: 1;
-            }
-        } 
+        @include up();
         &:nth-of-type(2n){
             align-self: flex-end;
         }
+        &:hover{
+            figure figcaption{
+                transform: translateY(0);
+                opacity: 1;
+            }
+        } 
         figure{
             width: 100%;
             height: 100%;
@@ -381,10 +415,11 @@ section.contents{
                 font-size: 24px;
                 font-weight: bold;
                 text-align: center;
-                line-height: 200px;
+                line-height: 10vw;
                 color: #fff;
                 background-color: rgba($color: #000000, $alpha: 0.6);
                 opacity: 0;
+                transform: translateY(100%);
                 transition: .35s;
             }
         }
@@ -397,10 +432,11 @@ section.contents{
 }
 .processCopy{
     p{
+        text-align: center;
         line-height: 1.5em;
         span{
             font-weight: bold;
-        color: $color;
+            color: $color;
         }
     }
 }
@@ -413,18 +449,19 @@ section.contents{
         height: 100%;
         margin: 0 auto;
         display: flex;
-        justify-content: flex-start;
         align-items: center;
+        position: relative;
+        overflow: hidden;
         h3{
-            align-self: flex-start;
-            margin-right: 75px;
             line-height: 60px;
             font-size: 1.500em;
             font-weight: bold;
         }
         .questionList{
             height: 100%;
-            overflow: hidden;
+            position: absolute;
+            left: 80px;
+            top: 0;
             &:hover li{
                 text-decoration: underline;
                 cursor: pointer;
@@ -527,6 +564,7 @@ footer{
             height: 32px;
             position: relative;
             background-color: #fff;
+            box-shadow: 3px 3px 6px 6px rgba(0,0,0,0.1);
             a{
                 width: 100%;
                 height: 100%;
@@ -535,24 +573,32 @@ footer{
                 box-sizing: border-box;
                 font-size: 14px;
                 background: url('img/familysite_arrow.png') no-repeat 90% center;
+                &.active{
+                    background: url('img/familysite_arrow_active.png') no-repeat 90% center;
+                }
             }
             ul{
                 width: 100%;
                 position: absolute;
                 left: 0;
-                top: -298px;
+                top: 100%;
                 background: #fff;
                 border: 1px solid #a5a5a5;
                 box-sizing: border-box;
+                opacity: .8;
                 li{
                     width:100%;
-                    height:32px;
+                    height:28px;
                     border-bottom: 1px solid #a5a5a5;
+                    box-sizing: border-box;
                     &:last-of-type{
                         border-bottom:none;
                     }
                     a{
-                       background: none;
+                        font-size: 12px;
+                        line-height: 28px;
+
+                        background: none;
                     }
                     
 
@@ -570,7 +616,7 @@ footer{
     border-radius: 20px;
     position: fixed;
     right: 5%;
-    bottom: 45%;
+    bottom: calc(50% - 84px);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -583,9 +629,9 @@ footer{
         background: #fff;
         transition: .35s;
         cursor: pointer;
-        @for $i from 1 to 6{
-            &:nth-of-type(#{$i}){
-                &:hover{
+        &.active{
+            @for $i from 1 to 6{
+                &:nth-of-type(#{$i}){
                     width: 21px;
                     height: 21px;
                     border-radius: 0%;
@@ -593,8 +639,6 @@ footer{
                 }
             }
         }
-    }
-    span.active{
         @for $i from 1 to 6{
             &:nth-of-type(#{$i}){
                 &:hover{
@@ -615,6 +659,7 @@ footer{
     bottom: 10%;
     right: 4%;
     overflow: hidden;
+    display: none;
     a{
         width: 100%;
         height: 100%;
