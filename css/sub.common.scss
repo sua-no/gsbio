@@ -1,0 +1,73 @@
+@import "mixin";
+.subHeader{
+    width: 100%;
+    height: 400px;
+    @include background("company_sub.jpg");
+    position: relative;
+    .headerTxt{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 42%;
+        h2{
+            font-size: 40px;
+            font-weight: bold;
+            color: #fff;
+        }
+    }
+    .tabBox{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        overflow: hidden;
+        button{
+            float: left;
+            width: 180px;
+            height: 50px;
+            background: rgba(0,177,126,0.5);
+            &:hover{
+                background: #fff;
+                span{
+                    font-weight: 300;
+                    color: #333;
+                }
+            }
+            &.active{
+                background: #fff;
+                span{
+                    font-weight: 300;
+                    color: #333;
+                }  
+            }
+            span{
+                width: 100%;
+                height: 100%;
+                line-height: 50px;
+                color: #fff;
+                font-weight: 100;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.subContents{
+    width: 100%;
+    .inner{
+        width: 67.7083%;
+        margin: 0 auto;
+        padding: 100px 0;
+        // position: relative;
+        article{
+            width: 100%;
+            height: 300px;
+            background: #000;
+            // position: absolute;
+            // left: 0;
+            // top: 0;
+            margin-top: 100px;
+            color: #fff;
+            display: none;
+        }
+    }
+}

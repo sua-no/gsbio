@@ -1,0 +1,58 @@
+.subHeader {
+  width: 100%;
+  height: 400px;
+  background: url("../img/company_sub.jpg") no-repeat center center;
+  position: relative; }
+  .subHeader .headerTxt {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 42%; }
+    .subHeader .headerTxt h2 {
+      font-size: 40px;
+      font-weight: bold;
+      color: #fff; }
+  .subHeader .tabBox {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    overflow: hidden; }
+    .subHeader .tabBox button {
+      float: left;
+      width: 180px;
+      height: 50px;
+      background: rgba(0, 177, 126, 0.5); }
+      .subHeader .tabBox button:hover {
+        background: #fff; }
+        .subHeader .tabBox button:hover span {
+          font-weight: 300;
+          color: #333; }
+      .subHeader .tabBox button.active {
+        background: #fff; }
+        .subHeader .tabBox button.active span {
+          font-weight: 300;
+          color: #333; }
+      .subHeader .tabBox button span {
+        width: 100%;
+        height: 100%;
+        line-height: 50px;
+        color: #fff;
+        font-weight: 100;
+        cursor: pointer; }
+
+.subContents {
+  width: 100%; }
+  .subContents .inner {
+    width: 67.7083%;
+    margin: 0 auto;
+    padding: 100px 0; }
+    .subContents .inner article {
+      width: 100%;
+      height: 300px;
+      background: #000;
+      margin-top: 100px;
+      color: #fff;
+      display: none; }
+
+/*# sourceMappingURL=sub.common.css.map */

@@ -208,12 +208,4 @@ window.addEventListener('DOMContentLoaded', function () {
             scrollTop: sectionOffset
         }, 500);
     }
-
-
-    // history.pushState({key:idx},'','all');
-
-    // window.onpopstate = function(e){
-    //     //e.state.key
-    //     func(e.state.key)
-    // }
 });
