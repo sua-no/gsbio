@@ -60,22 +60,88 @@
         position: relative;
         article{
             width: 100%;
-            height: 300px;
             position: absolute;
             left: 0;
             top: 0;
             display: none;
             .subTit{
-                margin: 0 auto;
+                margin: 0 auto 10.7692%;
                 h3{
                     font-size: 1.750em;
-                    margin-bottom: 35px;
+                    text-align: center;
+                    margin-bottom: 85px;
+                    font-weight: bold;
+                    position: relative;
+                    &:after{
+                        @include after(77px,$color);
+                        bottom: -35px;
+                        left: calc(50% - 38px);
+                    }
                 }
                 p{
-                    margin: 0 auto;
-                    font-size: 1.125em;
+                    text-align: center;
+                    color: #919191;
+                    white-space: pre-line;
+                    line-height: 1.4em;
+                }
+            }
+            .subject{
+                width: 100%;
+                text-align: center;
+                p{
+                    line-height: 1.5em;
+                    text-align: center;
                     white-space: pre-line;
                 }
+            }
+        }
+    }
+}
+.subCompany{
+    .subject{
+        position: relative;
+        p{
+            width: 100%;
+            height: 360px;
+            margin: 0 auto 8.4615%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        table{
+            width: 100%;
+            padding: 0 60px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            tr{
+                width: 100%;
+                height: 70px;
+                line-height: 70px;
+                border-bottom: 1px solid #a5a5a5;
+                th{
+                    font-weight: bold;
+                    width: 25%;
+                }
+                td{
+                    width: 25%;
+                    padding-left: 30px;
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+.subCeo{
+    .subject{
+        p{
+            margin-bottom: 20px;
+            &:last-of-type{
+                margin-bottom: 0;
             }
         }
     }

@@ -50,19 +50,74 @@
     position: relative; }
     .subContents .inner article {
       width: 100%;
-      height: 300px;
       position: absolute;
       left: 0;
       top: 0;
       display: none; }
       .subContents .inner article .subTit {
-        margin: 0 auto; }
+        margin: 0 auto 10.7692%; }
         .subContents .inner article .subTit h3 {
           font-size: 1.750em;
-          margin-bottom: 35px; }
+          text-align: center;
+          margin-bottom: 85px;
+          font-weight: bold;
+          position: relative; }
+          .subContents .inner article .subTit h3:after {
+            display: block;
+            content: '';
+            width: 77px;
+            height: 1px;
+            position: absolute;
+            background: #00b17e;
+            bottom: -35px;
+            left: calc(50% - 38px); }
         .subContents .inner article .subTit p {
-          margin: 0 auto;
-          font-size: 1.125em;
+          text-align: center;
+          color: #919191;
+          white-space: pre-line;
+          line-height: 1.4em; }
+      .subContents .inner article .subject {
+        width: 100%;
+        text-align: center; }
+        .subContents .inner article .subject p {
+          line-height: 1.5em;
+          text-align: center;
           white-space: pre-line; }
+
+.subCompany .subject {
+  position: relative; }
+  .subCompany .subject p {
+    width: 100%;
+    height: 360px;
+    margin: 0 auto 8.4615%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; }
+    .subCompany .subject p img {
+      width: 100%;
+      height: 100%; }
+  .subCompany .subject table {
+    width: 100%;
+    padding: 0 60px;
+    margin: 0 auto;
+    box-sizing: border-box; }
+    .subCompany .subject table tr {
+      width: 100%;
+      height: 70px;
+      line-height: 70px;
+      border-bottom: 1px solid #a5a5a5; }
+      .subCompany .subject table tr th {
+        font-weight: bold;
+        width: 25%; }
+      .subCompany .subject table tr td {
+        width: 25%;
+        padding-left: 30px;
+        text-align: left; }
+
+.subCeo .subject p {
+  margin-bottom: 20px; }
+  .subCeo .subject p:last-of-type {
+    margin-bottom: 0; }
 
 /*# sourceMappingURL=sub.common.css.map */
