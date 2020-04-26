@@ -9,7 +9,6 @@ $(function () {
     function tabContents(){
         clickTab = $(this).attr('value');
         $('.contents').each(function (i) {
-
             if (clickTab == $('.contents').eq(i).data('tab')) { //tab의 value값과 contents의 data값 비교
                 tabHeight =  $('.contents').eq(i).height();
                 $('.subContents .inner').css({
