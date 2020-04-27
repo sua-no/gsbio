@@ -4,7 +4,6 @@ $(function () {
     $(window).on('scroll', subScrollManager);
     //page tab이동시 page값 변경
     window.addEventListener('popstate', function () {
-
         tabContents(history.state.page);
     });
 
@@ -28,18 +27,18 @@ $(function () {
 
     }
     function historyManager(idx) {
-        console.log(idx);
         history.pushState({ page: idx }, 'title', '#' + idx);
     }
 
 
     function subScrollManager() {
-        // console.log($(this).scrollTop());
+        console.log($(this).scrollTop());
         if ($(this).scrollTop() != 0) {
-            $('.header').addClass('active');
+            $('header').addClass('active');
 
         } else {
-            $('.header').removeClass('active');
+            $('header').removeClass('active');
+
 
         }
     }
