@@ -1,8 +1,8 @@
 window.addEventListener('DOMContentLoaded', function () {
     const visualTxt = $('.visualTxt p');
-    let datas, windowScroll, liIdx, jsonCopy1, 
-    jsonCopy2, docHeight, scrollLength, faqInterval, 
-    slideInterval, indiIdx,
+    let datas, windowScroll, liIdx, jsonCopy1,
+        jsonCopy2, docHeight, scrollLength, faqInterval,
+        slideInterval, indiIdx,
         slideNum = 1, slideTimer = true,
         businessTop = $('.business').offset().top,
         windowHeight = $(window).innerHeight();
@@ -22,8 +22,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
     //스크롤 이벤트
-    $(window).on('scroll', scrollManager);
-    
+    $(window).on('scroll', mainScrollManager);
+
     //FAQ 마우스오버 시 포즈
     $('.questionList').on('mouseenter', faqMouse);
     $('.questionList').on('mouseleave', faqMouse);
@@ -32,10 +32,9 @@ window.addEventListener('DOMContentLoaded', function () {
     $('.prev').on('click', slideClick);
     $('.pause').on('click', pause);
     $('.indicator span').on('click', scrollMove); //인디게이터 클릭시 해당위치로 스크롤 이동
-    $('.top').on('click', scrollTop);
 
 
-    function init() { 
+    function init() {
         $('.visualSlide ul li').each(function (i) {
             liIdx = $(this).index();
             $(this).css({
@@ -44,14 +43,11 @@ window.addEventListener('DOMContentLoaded', function () {
         });
         faqLoop();
     }
-    function scrollManager() {
+    function mainScrollManager() {
         docHeight = $(document).height();
         windowScroll = $(this).scrollTop();
         scrollLength = docHeight - windowHeight;
         headerFixed(); // 스크롤 비주얼 아래로 내려오면 헤더 고정
-        contentsUp(); //서브카피 애니메이션
-        contentsIn(); //비즈니스 컨텐츠 애니메이션
-        topBtnShow(); //스크롤 양이 문서전체 70% 넘으면 top버튼 show
         indiChange(); //현재 스크롤 위치에 따라 인디게이터 변경
     }
     function headerFixed() {
@@ -67,33 +63,6 @@ window.addEventListener('DOMContentLoaded', function () {
             });
         }
     }
-    function contentsUp() {
-        $('.up').each(function () {
-            if ($(this).offset().top - windowHeight <= windowScroll) {
-                $(this).css({
-                    transform: 'translateY(0)',
-                    opacity: 1
-                });
-            }
-        });
-    }
-    function contentsIn() { 
-        $('.leftIn,.rightIn').each(function () {
-            if ($(this).offset().top - windowHeight <= windowScroll) {
-                $(this).css({
-                    transform: 'translateX(0)',
-                    opacity: 1
-                });
-            }
-        });
-    }
-    function topBtnShow() {
-        if (scrollLength * 0.7 <= windowScroll) {
-            $('.top').show(500);
-        } else {
-            $('.top').hide(500);
-        }
-    }
     function indiChange() {
         $('section').each(function (i) {
             indiIdx = i;
@@ -102,7 +71,6 @@ window.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-    
     function slideClick() {
         if (slideTimer) { //슬라이드 이동하는 중 중복 클릭 방지
             slideTimer = false;
@@ -195,16 +163,10 @@ window.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
-    function scrollTop() {
-        event.preventDefault();
-        $("html").animate({ 
-            scrollTop: 0
-        }, 800);
-    }
     function scrollMove() {
         indiIdx = $(this).index();
         sectionOffset = $('section').eq(indiIdx).offset().top;
-        $("html").animate({ 
+        $("html").animate({
             scrollTop: sectionOffset
         }, 500);
     }

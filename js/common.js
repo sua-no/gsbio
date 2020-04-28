@@ -1,7 +1,11 @@
 $(function () {
-    $('header').load('../header.html');
-    $('footer').load('../footer.html');
+    let docHeight, scrollLength, windowHeight = $(window).innerHeight();
 
+    $('header').load('../header.html'); //헤더 로드
+    $('footer').load('../footer.html'); //푸터 로드
+
+    $(window).on('scroll', scrollManager);
+    $('.top').on('click', scrollTop); // top버튼 클릭시 scrolltop : 0
 
     setTimeout(function () { //html로드 후 적용
         const navClone = $('nav').html();
@@ -70,5 +74,45 @@ $(function () {
             }
         }
     }, 300);
-
+    function scrollManager() {
+        docHeight = $(document).height();
+        windowScroll = $(this).scrollTop();
+        scrollLength = docHeight - windowHeight;
+        contentsUp(); //서브카피 애니메이션
+        contentsIn(); //비즈니스 컨텐츠 애니메이션
+        topBtnShow(); //스크롤 양이 문서전체 70% 넘으면 top버튼 show
+    }
+    function contentsUp() {
+        $('.up').each(function () {
+            if ($(this).offset().top - windowHeight <= windowScroll) {
+                $(this).css({
+                    transform: 'translateY(0)',
+                    opacity: 1
+                });
+            }
+        });
+    }
+    function contentsIn() {
+        $('.leftIn,.rightIn').each(function () {
+            if ($(this).offset().top - windowHeight <= windowScroll) {
+                $(this).css({
+                    transform: 'translateX(0)',
+                    opacity: 1
+                });
+            }
+        });
+    }
+    function topBtnShow() {
+        if (scrollLength * 0.7 <= windowScroll) {
+            $('.top').show(500);
+        } else {
+            $('.top').hide(500);
+        }
+    }
+    function scrollTop() {
+        event.preventDefault();
+        $("html").animate({
+            scrollTop: 0
+        }, 800);
+    }
 });
