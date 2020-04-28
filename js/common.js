@@ -1,8 +1,8 @@
 $(function () {
     let docHeight, scrollLength, windowHeight = $(window).innerHeight();
-    var gitUrl = location.href + '/js';
-    $('header').load(gitUrl + '/header.html'); //헤더 로드
-    $('footer').load(gitUrl + '/footer.html'); //푸터 로드
+
+    $('header').load('header.html'); //헤더 로드
+    $('footer').load('footer.html'); //푸터 로드
 
 
     $(window).on('scroll', scrollManager);
