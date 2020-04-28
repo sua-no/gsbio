@@ -1,8 +1,9 @@
 $(function () {
     let docHeight, scrollLength, windowHeight = $(window).innerHeight();
 
-    $('header').load('../header.html'); //헤더 로드
-    $('footer').load('../footer.html'); //푸터 로드
+    $('header').load('/header.html'); //헤더 로드
+    $('footer').load('/footer.html'); //푸터 로드
+
 
     $(window).on('scroll', scrollManager);
     $('.top').on('click', scrollTop); // top버튼 클릭시 scrolltop : 0
@@ -24,8 +25,6 @@ $(function () {
                 //글로벌내비 마우스오버 시 2depth menu down                
                 $('.depth1>li').on('mouseenter', depth2Down);
                 $('.depth1').on('mouseleave', depth2Down);
-
-
             } else {
                 $('nav').html('');
                 $('nav').html(navClone);
@@ -62,7 +61,6 @@ $(function () {
             } else {
                 $(this).find($('.depth2')).slideUp();
             }
-
         }
         function familyClick() {
             event.preventDefault();
@@ -116,3 +114,11 @@ $(function () {
         }, 800);
     }
 });
+function resetStlyle() {
+    $('.up').each(function () {
+        $(this).attr('style', '');
+    });
+    $('.leftIn,.rightIn').each(function () {
+        $(this).attr('style', '');
+    });
+}

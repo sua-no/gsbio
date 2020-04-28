@@ -1,0 +1,53 @@
+@import "sub.common";
+
+.subHeader{
+    @include background("business_sub.jpg");
+}
+.contents .subject{
+    ul.bioList{
+        width: 100%;
+        li{
+            width: 100%;
+            margin-bottom: 120px;
+            @include rightIn();
+            @include leftIn();
+
+            &:nth-of-type(odd) figure{
+                flex-direction: row-reverse;
+                figcaption{
+                    padding-right: 80px;
+                    padding-left: 0;
+                    p,span{
+                        text-align: left;
+                    }
+                }
+            }
+            &:last-of-type{
+                margin-bottom: 0;
+            }
+            figure{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                >p{
+                    width: 50%;
+                    img{
+                        width: 100%;
+                    }
+                }
+                figcaption{
+                    width: 40%;
+                    padding-left: 80px;
+                    box-sizing: border-box;
+                    p,span{
+                        text-align: right;
+                    }
+                    p{}
+                    span{
+                        white-space: pre-line;
+                    }
+                }
+            }
+        }
+    }
+}

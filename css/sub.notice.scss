@@ -1,0 +1,5 @@
+@import "sub.common";
+
+.subHeader{
+    @include background("notice_sub.jpg");
+}

@@ -1,8 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
-@keyframes rightIn {
-  100% {
-    transform: translateX(0);
-    opacity: 1; } }
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -194,7 +190,7 @@ footer {
         margin: 0 30px 28px 0;
         position: relative;
         color: #fff;
-        font-size: 14px;
+        font-size: 0.875rem;
         font-weight: 100;
         cursor: pointer; }
         footer .inner .footerInfo .lnb li:after {
@@ -213,7 +209,7 @@ footer {
         margin-bottom: 26px; }
       footer .inner .footerInfo p {
         color: #fff;
-        font-size: 14px;
+        font-size: 0.875rem;
         font-weight: 100;
         line-height: 1.5em; }
     footer .inner .familySite {
@@ -229,7 +225,7 @@ footer {
         padding-left: 20px;
         line-height: 32px;
         box-sizing: border-box;
-        font-size: 14px;
+        font-size: 0.875rem;
         background: url("../img/familysite_arrow.png") no-repeat 90% center; }
         footer .inner .familySite a.active {
           background: url("../img/familysite_arrow_active.png") no-repeat 90% center; }
@@ -250,7 +246,7 @@ footer {
           footer .inner .familySite ul li:last-of-type {
             border-bottom: none; }
           footer .inner .familySite ul li a {
-            font-size: 12px;
+            font-size: 0.750rem;
             line-height: 28px;
             background: none; }
 
@@ -365,10 +361,6 @@ footer {
       display: none; }
     footer .inner .familySite {
       display: none; } }
-@keyframes rightIn {
-  100% {
-    transform: translateX(0);
-    opacity: 1; } }
 .wrap {
   width: 100%;
   overflow: hidden; }
@@ -470,7 +462,7 @@ section.contents {
       margin-bottom: 80px;
       text-align: center; }
       section.contents .inner .subCopy.up {
-        transform: translateY(50px);
+        transform: translateY(80px);
         opacity: 0;
         transition: .5s ease-in; }
       section.contents .inner .subCopy h2 {
@@ -484,13 +476,15 @@ section.contents {
 .businessList {
   width: 100%; }
   .businessList li {
-    width: 100%;
-    opacity: 0;
-    transition: 1.2s ease-in-out; }
-    .businessList li.leftIn {
-      transform: translateX(-100%); }
+    width: 100%; }
     .businessList li.rightIn {
-      transform: translateX(100%); }
+      transform: translateX(300px);
+      opacity: 0;
+      transition: 1s ease-in-out; }
+    .businessList li.leftIn {
+      transform: translateX(-300px);
+      opacity: 0;
+      transition: 1s ease-in-out; }
     .businessList li figure {
       width: 100%;
       display: flex;
@@ -560,7 +554,7 @@ section.contents {
     .valueList .values:nth-of-type(3) figure .valueIcon {
       background: rgba(255, 255, 255, 0.6) url("../img/value_03.png") no-repeat center center; }
     .valueList .values.up {
-      transform: translateY(50px);
+      transform: translateY(80px);
       opacity: 0;
       transition: .5s ease-in; }
     .valueList .values:nth-of-type(2) {
@@ -595,7 +589,7 @@ section.contents {
     overflow: hidden;
     transition: .35s; }
     .processList li.up {
-      transform: translateY(50px);
+      transform: translateY(80px);
       opacity: 0;
       transition: .5s ease-in; }
     .processList li:nth-of-type(2n) {

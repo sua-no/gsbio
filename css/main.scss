@@ -128,14 +128,8 @@ section.contents{
     width: 100%;
     li{
         width: 100%;
-        opacity: 0;
-        transition: 1.2s ease-in-out;
-        &.leftIn{
-            transform: translateX(-100%);  
-        }
-        &.rightIn{
-            transform: translateX(100%);  
-        }
+        @include rightIn();
+        @include leftIn();
         figure{
             width: 100%;
             display: flex;

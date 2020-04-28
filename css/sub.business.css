@@ -1,8 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
-@keyframes rightIn {
-  100% {
-    transform: translateX(0);
-    opacity: 1; } }
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -194,7 +190,7 @@ footer {
         margin: 0 30px 28px 0;
         position: relative;
         color: #fff;
-        font-size: 14px;
+        font-size: 0.875rem;
         font-weight: 100;
         cursor: pointer; }
         footer .inner .footerInfo .lnb li:after {
@@ -213,7 +209,7 @@ footer {
         margin-bottom: 26px; }
       footer .inner .footerInfo p {
         color: #fff;
-        font-size: 14px;
+        font-size: 0.875rem;
         font-weight: 100;
         line-height: 1.5em; }
     footer .inner .familySite {
@@ -229,7 +225,7 @@ footer {
         padding-left: 20px;
         line-height: 32px;
         box-sizing: border-box;
-        font-size: 14px;
+        font-size: 0.875rem;
         background: url("../img/familysite_arrow.png") no-repeat 90% center; }
         footer .inner .familySite a.active {
           background: url("../img/familysite_arrow_active.png") no-repeat 90% center; }
@@ -250,7 +246,7 @@ footer {
           footer .inner .familySite ul li:last-of-type {
             border-bottom: none; }
           footer .inner .familySite ul li a {
-            font-size: 12px;
+            font-size: 0.750rem;
             line-height: 28px;
             background: none; }
 
@@ -365,5 +361,142 @@ footer {
       display: none; }
     footer .inner .familySite {
       display: none; } }
+.subHeader {
+  width: 100%;
+  height: 400px;
+  position: relative; }
+  .subHeader .headerTxt {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 42%; }
+    .subHeader .headerTxt h2 {
+      font-size: 2.500rem;
+      font-weight: bold;
+      color: #fff; }
+  .subHeader .tabBox {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    display: flex;
+    overflow: hidden; }
+    .subHeader .tabBox .tab {
+      display: block;
+      width: 180px;
+      height: 50px;
+      background: rgba(0, 177, 126, 0.5);
+      border-right: 1px solid rgba(238, 238, 238, 0.2); }
+      .subHeader .tabBox .tab:last-of-type {
+        border-right: none; }
+      .subHeader .tabBox .tab:hover {
+        background: #fff; }
+        .subHeader .tabBox .tab:hover span {
+          font-weight: 300;
+          color: #333; }
+      .subHeader .tabBox .tab.active {
+        background: #fff; }
+        .subHeader .tabBox .tab.active span {
+          font-weight: 300;
+          color: #333; }
+      .subHeader .tabBox .tab span {
+        width: 100%;
+        height: 100%;
+        line-height: 50px;
+        color: #fff;
+        font-weight: 100;
+        cursor: pointer; }
 
-/*# sourceMappingURL=common.css.map */
+.subContents {
+  width: 100%;
+  padding: 100px 0 150px; }
+  .subContents .inner {
+    width: 67.7083%;
+    margin: 0 auto;
+    position: relative; }
+    .subContents .inner article {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: none; }
+      .subContents .inner article .subTit {
+        margin: 0 auto 10.7692%;
+        transform: translateY(80px);
+        opacity: 0;
+        animation: subTitUp 1s forwards; }
+@keyframes subTitUp {
+  100% {
+    transform: translateY(0px);
+    opacity: 1; } }
+        .subContents .inner article .subTit h3 {
+          font-size: 1.750rem;
+          text-align: center;
+          margin-bottom: 85px;
+          font-weight: bold;
+          position: relative; }
+          .subContents .inner article .subTit h3:after {
+            display: block;
+            content: '';
+            width: 77px;
+            height: 1px;
+            position: absolute;
+            background: #00b17e;
+            bottom: -35px;
+            left: calc(50% - 38px); }
+        .subContents .inner article .subTit p {
+          text-align: center;
+          color: #919191;
+          white-space: pre-line;
+          line-height: 1.4em; }
+      .subContents .inner article .subject {
+        width: 100%;
+        text-align: center; }
+        .subContents .inner article .subject p {
+          line-height: 1.5em;
+          text-align: center;
+          white-space: pre-line; }
+
+.subHeader {
+  background: url("../img/business_sub.jpg") no-repeat center center; }
+
+.contents .subject ul.bioList {
+  width: 100%; }
+  .contents .subject ul.bioList li {
+    width: 100%;
+    margin-bottom: 120px; }
+    .contents .subject ul.bioList li.rightIn {
+      transform: translateX(300px);
+      opacity: 0;
+      transition: 1s ease-in-out; }
+    .contents .subject ul.bioList li.leftIn {
+      transform: translateX(-300px);
+      opacity: 0;
+      transition: 1s ease-in-out; }
+    .contents .subject ul.bioList li:nth-of-type(odd) figure {
+      flex-direction: row-reverse; }
+      .contents .subject ul.bioList li:nth-of-type(odd) figure figcaption {
+        padding-right: 80px;
+        padding-left: 0; }
+        .contents .subject ul.bioList li:nth-of-type(odd) figure figcaption p, .contents .subject ul.bioList li:nth-of-type(odd) figure figcaption span {
+          text-align: left; }
+    .contents .subject ul.bioList li:last-of-type {
+      margin-bottom: 0; }
+    .contents .subject ul.bioList li figure {
+      width: 100%;
+      display: flex;
+      align-items: center; }
+      .contents .subject ul.bioList li figure > p {
+        width: 50%; }
+        .contents .subject ul.bioList li figure > p img {
+          width: 100%; }
+      .contents .subject ul.bioList li figure figcaption {
+        width: 40%;
+        padding-left: 80px;
+        box-sizing: border-box; }
+        .contents .subject ul.bioList li figure figcaption p, .contents .subject ul.bioList li figure figcaption span {
+          text-align: right; }
+        .contents .subject ul.bioList li figure figcaption span {
+          white-space: pre-line; }
+
+/*# sourceMappingURL=sub.business.css.map */

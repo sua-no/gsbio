@@ -18,25 +18,22 @@ $gnbBorder : 1px solid #ddd;
 }
 @mixin up(){
     &.up{
-        transform: translateY(50px);
+        transform: translateY(80px);
         opacity: 0;
         transition: .5s ease-in;
     }
 }
 @mixin rightIn(){
-    transform: translateX(300px);
-    opacity: 0;
-    transition: 1s ease-in-out;
-    animation: rightIn 1s forwards;
+    &.rightIn{
+        transform: translateX(300px);
+        opacity: 0;
+        transition: 1s ease-in-out;
+    } 
 }
-@mixin lefttIn(){
+@mixin leftIn(){
+    &.leftIn{
     transform: translateX(-300px);
     opacity: 0;
-    animation: leftIn 1s forwards;
-}
-@keyframes rightIn{
-    100%{
-        transform: translateX(0);
-        opacity: 1;
+    transition: 1s ease-in-out;
     }
 }

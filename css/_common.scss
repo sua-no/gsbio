@@ -1,5 +1,6 @@
 @import "mixin";
 @import "reset";
+
 header{
     width: 100%;
     background: rgba(255,255,255,0.5);
@@ -147,7 +148,7 @@ footer{
                     margin:0 30px 28px 0;
                     position: relative;
                     color: #fff;
-                    font-size: 14px;
+                    font-size: 0.875rem;
                     font-weight: 100;
                     cursor: pointer;
                     &:after{
@@ -166,7 +167,7 @@ footer{
             }
             p{
                 color: #fff;
-                font-size: 14px;
+                font-size:  0.875rem;
                 font-weight: 100;
                 line-height:1.500em
             }
@@ -184,7 +185,7 @@ footer{
                 padding-left: 20px;
                 line-height: 32px;
                 box-sizing: border-box;
-                font-size: 14px;
+                font-size:  0.875rem;
                 background: url('../img/familysite_arrow.png') no-repeat 90% center;
                 &.active{
                     background: url('../img/familysite_arrow_active.png') no-repeat 90% center;
@@ -208,7 +209,7 @@ footer{
                         border-bottom:none;
                     }
                     a{
-                        font-size: 12px;
+                        font-size: 0.750rem;
                         line-height: 28px;
 
                         background: none;

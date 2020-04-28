@@ -1,0 +1,114 @@
+@import "mixin";
+@import "common";
+
+.subHeader{
+    width: 100%;
+    height: 400px;
+    position: relative;
+    .headerTxt{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 42%;
+        h2{
+            font-size: 2.500rem;
+            font-weight: bold;
+            color: #fff;
+        }
+    }
+    .tabBox{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        display: flex;
+        overflow: hidden;
+        .tab{
+            display: block;
+            width: 180px;
+            height: 50px;
+            background: rgba(0,177,126,0.5);
+            border-right: 1px solid rgba(238, 238, 238, 0.2);
+            &:last-of-type{
+                border-right: none;
+            }
+            &:hover{
+                background: #fff;
+                span{
+                    font-weight: 300;
+                    color: #333;
+                }
+            }
+            &.active{
+                background: #fff;
+                span{
+                    font-weight: 300;
+                    color: #333;
+                }  
+            }
+            span{
+                width: 100%;
+                height: 100%;
+                line-height: 50px;
+                color: #fff;
+                font-weight: 100;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.subContents{
+    width: 100%;
+    padding: 100px 0 150px;
+    .inner{
+        width: 67.7083%;
+        margin: 0 auto;
+        position: relative;
+        article{
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+            .subTit{
+                margin: 0 auto 10.7692%;
+                transform: translateY(80px);
+                opacity: 0;
+                animation: subTitUp 1s forwards;
+                @keyframes subTitUp{
+                    100%{
+                        transform: translateY(0px);
+                        opacity: 1;
+                    }
+                }
+                h3{
+                    font-size: 1.750rem;
+                    text-align: center;
+                    margin-bottom: 85px;
+                    font-weight: bold;
+                    position: relative;
+                    &:after{
+                        @include after(77px,$color);
+                        bottom: -35px;
+                        left: calc(50% - 38px);
+                    }
+                }
+                p{
+                    text-align: center;
+                    color: #919191;
+                    white-space: pre-line;
+                    line-height: 1.4em;
+                }
+            }
+            .subject{
+                width: 100%;
+                text-align: center;
+                p{
+                    line-height: 1.5em;
+                    text-align: center;
+                    white-space: pre-line;
+                }
+            }
+        }
+    }
+}

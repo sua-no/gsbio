@@ -1,121 +1,18 @@
-@import "mixin";
+@import "sub.common";
 
 .subHeader{
-    width: 100%;
-    height: 400px;
     @include background("company_sub.jpg");
-    position: relative;
-    .headerTxt{
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        top: 42%;
-        h2{
-            font-size: 40px;
-            font-weight: bold;
-            color: #fff;
-        }
-    }
-    .tabBox{
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 0;
-        overflow: hidden;
-        .tab{
-            float: left;
-            width: 180px;
-            height: 50px;
-            background: rgba(0,177,126,0.5);
-            border-right: 1px solid rgba(238, 238, 238, 0.2);
-            &:last-of-type{
-                border-right: none;
-            }
-            &:hover{
-                background: #fff;
-                span{
-                    font-weight: 300;
-                    color: #333;
-                }
-            }
-            &.active{
-                background: #fff;
-                span{
-                    font-weight: 300;
-                    color: #333;
-                }  
-            }
-            span{
-                width: 100%;
-                height: 100%;
-                line-height: 50px;
-                color: #fff;
-                font-weight: 100;
-                cursor: pointer;
-            }
-        }
-    }
-}
-.subContents{
-    width: 100%;
-    padding: 100px 0 150px;
-    .inner{
-        width: 67.7083%;
-        margin: 0 auto;
-        position: relative;
-        article{
-            width: 100%;
-            position: absolute;
-            left: 0;
-            top: 0;
-            display: none;
-            .subTit{
-                margin: 0 auto 10.7692%;
-                h3{
-                    font-size: 1.750em;
-                    text-align: center;
-                    margin-bottom: 85px;
-                    font-weight: bold;
-                    position: relative;
-                    &:after{
-                        @include after(77px,$color);
-                        bottom: -35px;
-                        left: calc(50% - 38px);
-                    }
-                }
-                p{
-                    text-align: center;
-                    color: #919191;
-                    white-space: pre-line;
-                    line-height: 1.4em;
-                }
-            }
-            .subject{
-                width: 100%;
-                text-align: center;
-                p{
-                    line-height: 1.5em;
-                    text-align: center;
-                    white-space: pre-line;
-                }
-            }
-        }
-    }
 }
 .subCompany{
     .subject{
         position: relative;
         p{
             width: 100%;
-            height: 360px;
             margin: 0 auto 8.4615%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+            @include up();
+
             img{
                 width: 100%;
-                height: 100%;
             }
         }
         table{
@@ -123,6 +20,7 @@
             padding: 0 60px;
             margin: 0 auto;
             box-sizing: border-box;
+            @include up();
             tr{
                 width: 100%;
                 height: 70px;
@@ -145,14 +43,23 @@
     .subject{
         div span{
             margin-bottom: 100px;
-            font-size: 60px;
+            font-size: 3.750rem;
             font-weight: bold;
             color: $color;
             white-space: pre-line;
-            @include rightIn();
+            transform: translateX(200px);
+            opacity: 0;
+            animation: rightIn .8s .8s ease-in-out forwards;
+            @keyframes rightIn{
+                100%{
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
         }
         p{
             margin-bottom: 20px;
+            @include up();
             &:last-of-type{
                 margin-bottom: 0;
             }
@@ -170,6 +77,7 @@
             justify-content: center;
             align-items: center;
             @include background("company_history.jpg");
+            @include up();rightIn
             &:after{
                 position: inherit;
                 @include after(24px,#fff);
@@ -189,7 +97,6 @@
         .history{
             width: 100%;
             position: relative;
-
             &:before{
                 @include after(1px,#717171);
                 height: 100%;
@@ -202,6 +109,8 @@
                 padding-left: 50%;
                 text-align: left;
                 position: relative;
+                @include rightIn();
+                @include leftIn();
                 &:before{
                     @include after(10px,$color);
                     height: 10px;
@@ -232,16 +141,16 @@
                 }
                 h5{
                     padding: 30px 0 30px 30px;
-                    font-size: 20px;
+                    font-size: 1.125rem;
                     font-weight: bold;
                 }
                 ul{
                     padding-left: 30px;
                     li{
                         margin-bottom: 20px;
+                        width: 100%;
                         img{
-                            width: 530px;
-                            height: 200px;
+                            width: 100%;
                         }
                     }
                 } 
@@ -272,7 +181,7 @@
                 }
                 p{
                     margin:20px 0;
-                    font-size: 20px;
+                    font-size: 1.125rem;
                 }
                 span{
                     color: $color;
