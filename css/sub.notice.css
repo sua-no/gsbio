@@ -460,4 +460,45 @@ footer {
 .subHeader {
   background: url("../img/notice_sub.jpg") no-repeat center center; }
 
+.contents .subject ul {
+  width: 100%;
+  border-top: 2px solid #333; }
+  .contents .subject ul li {
+    height: 100%;
+    padding: 20px 30px;
+    border-bottom: 1px solid #a5a5a5;
+    box-sizing: border-box; }
+
+.inner .subNotice .subject ul li {
+  transition: .35s; }
+  .inner .subNotice .subject ul li a {
+    width: 100%; }
+    .inner .subNotice .subject ul li a div {
+      width: 100%;
+      text-align: left; }
+      .inner .subNotice .subject ul li a div h4 {
+        font-size: 1.125rem;
+        font-weight: bold;
+        margin-bottom: 10px; }
+      .inner .subNotice .subject ul li a div .label {
+        width: 50px;
+        height: 20px;
+        margin-right: 20px;
+        border: 1px solid #eee;
+        text-align: center;
+        font-size: 0.875rem;
+        line-height: 20px;
+        box-sizing: border-box; }
+      .inner .subNotice .subject ul li a div p {
+        margin-top: 10px;
+        text-align: left; }
+  .inner .subNotice .subject ul li:hover {
+    background: #eee; }
+    .inner .subNotice .subject ul li:hover a div h4 {
+      color: #00b17e; }
+    .inner .subNotice .subject ul li:hover a div .label {
+      border: none;
+      background: #00b17e;
+      color: #fff; }
+
 /*# sourceMappingURL=sub.notice.css.map */

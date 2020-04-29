@@ -11,7 +11,6 @@
             margin-bottom: 120px;
             @include rightIn();
             @include leftIn();
-
             &:nth-of-type(odd) figure{
                 flex-direction: row-reverse;
                 figcaption{
@@ -42,12 +41,143 @@
                     p,span{
                         text-align: right;
                     }
-                    p{}
+                    p{
+                        font-size: 1.5rem;
+                        font-weight: bold;
+                        margin-bottom: 30px;
+                    }
                     span{
+                        display: block;
                         white-space: pre-line;
+                        line-height: 1.5em;
                     }
                 }
             }
         }
     }
+}
+.subGlycerin .subject{
+    ul{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        li{
+            width: 46.9230%;
+            height: 404px;
+            @for $i from 1 to 5{
+                &:nth-of-type(#{$i}) figure{
+                    @include background("glycerin_0#{$i}.jpg");
+                }
+            }
+            &:nth-of-type(3),&:nth-of-type(4){
+                margin-top: 80px;
+            }
+            @include up();
+            &:nth-of-type(2){
+                transition-delay: .3s;
+            }
+            &:nth-of-type(4){
+                transition-delay: .6s;
+            }
+            figure{
+                width: 100%;
+                height: 100%;
+                position: relative;
+                >span{
+                    width: 200px;
+                    height: 40px;
+                    border-radius: 30px;
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    bottom: 20px;
+                    background: rgba(255,255,255,0.8);
+                    color: $color;
+                    font-weight: bold;
+                    line-height: 40px;
+                    font-size: 1.125rem;
+                }
+                figcaption{
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    background: rgba(0,0,0,0.5);
+                    opacity: 0;
+                    transition: .8s;
+                    span{
+                        font-size: 1.125rem;
+                        font-weight: bold;
+                        color: #fff;
+                        text-align: center;
+                        line-height: 1.5em;
+                        white-space: pre-line;
+                    }
+                }
+            }
+            &:hover figure figcaption{
+                opacity: 1;
+                box-shadow: 0px 0px 8px 8px rgba(0,0,0,0.1);
+            }
+        }
+        
+    }
+}
+@media all and (max-width:1100px){
+    .contents .subject ul.bioList li {
+        margin-bottom: 60px;
+        figure{
+            flex-direction: column;
+            >p{
+                width: 100%;
+            }
+            figcaption{
+                width: 100%;
+                padding: 0;
+                p,span{
+                    text-align: center;
+                }
+                p{
+                    margin: 30px 0 20px 0;
+                }
+            }
+        }
+        &:nth-of-type(odd) figure{
+            flex-direction: column;
+            figcaption{
+                padding: 0;
+                p,span{
+                    text-align: center;
+                }
+                p{
+                    margin: 30px 0 20px 0;
+                }
+            }
+        }
+    }
+    .subGlycerin .subject ul{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        li{
+            width: 80%;
+            margin-bottom:50px;
+            &:nth-of-type(3),&:nth-of-type(4){
+                margin-top: 0;
+            }
+            &:nth-of-type(2),&:nth-of-type(4){
+                transition-delay:0;
+            }
+            &:nth-of-type(4){
+                margin-bottom: 0;
+            }
+        }
+        
+    }
+        
 }

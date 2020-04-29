@@ -496,7 +496,116 @@ footer {
         box-sizing: border-box; }
         .contents .subject ul.bioList li figure figcaption p, .contents .subject ul.bioList li figure figcaption span {
           text-align: right; }
+        .contents .subject ul.bioList li figure figcaption p {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin-bottom: 30px; }
         .contents .subject ul.bioList li figure figcaption span {
+          display: block;
+          white-space: pre-line;
+          line-height: 1.5em; }
+
+.subGlycerin .subject ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  .subGlycerin .subject ul li {
+    width: 46.9230%;
+    height: 404px; }
+    .subGlycerin .subject ul li:nth-of-type(1) figure {
+      background: url("../img/glycerin_01.jpg") no-repeat center center; }
+    .subGlycerin .subject ul li:nth-of-type(2) figure {
+      background: url("../img/glycerin_02.jpg") no-repeat center center; }
+    .subGlycerin .subject ul li:nth-of-type(3) figure {
+      background: url("../img/glycerin_03.jpg") no-repeat center center; }
+    .subGlycerin .subject ul li:nth-of-type(4) figure {
+      background: url("../img/glycerin_04.jpg") no-repeat center center; }
+    .subGlycerin .subject ul li:nth-of-type(3), .subGlycerin .subject ul li:nth-of-type(4) {
+      margin-top: 80px; }
+    .subGlycerin .subject ul li.up {
+      transform: translateY(80px);
+      opacity: 0;
+      transition: .5s ease-in; }
+    .subGlycerin .subject ul li:nth-of-type(2) {
+      transition-delay: .3s; }
+    .subGlycerin .subject ul li:nth-of-type(4) {
+      transition-delay: .6s; }
+    .subGlycerin .subject ul li figure {
+      width: 100%;
+      height: 100%;
+      position: relative; }
+      .subGlycerin .subject ul li figure > span {
+        width: 200px;
+        height: 40px;
+        border-radius: 30px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        color: #00b17e;
+        font-weight: bold;
+        line-height: 40px;
+        font-size: 1.125rem; }
+      .subGlycerin .subject ul li figure figcaption {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: .8s; }
+        .subGlycerin .subject ul li figure figcaption span {
+          font-size: 1.125rem;
+          font-weight: bold;
+          color: #fff;
+          text-align: center;
+          line-height: 1.5em;
           white-space: pre-line; }
+    .subGlycerin .subject ul li:hover figure figcaption {
+      opacity: 1;
+      box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1); }
+
+@media all and (max-width: 1100px) {
+  .contents .subject ul.bioList li {
+    margin-bottom: 60px; }
+    .contents .subject ul.bioList li figure {
+      flex-direction: column; }
+      .contents .subject ul.bioList li figure > p {
+        width: 100%; }
+      .contents .subject ul.bioList li figure figcaption {
+        width: 100%;
+        padding: 0; }
+        .contents .subject ul.bioList li figure figcaption p, .contents .subject ul.bioList li figure figcaption span {
+          text-align: center; }
+        .contents .subject ul.bioList li figure figcaption p {
+          margin: 30px 0 20px 0; }
+    .contents .subject ul.bioList li:nth-of-type(odd) figure {
+      flex-direction: column; }
+      .contents .subject ul.bioList li:nth-of-type(odd) figure figcaption {
+        padding: 0; }
+        .contents .subject ul.bioList li:nth-of-type(odd) figure figcaption p, .contents .subject ul.bioList li:nth-of-type(odd) figure figcaption span {
+          text-align: center; }
+        .contents .subject ul.bioList li:nth-of-type(odd) figure figcaption p {
+          margin: 30px 0 20px 0; }
+
+  .subGlycerin .subject ul {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .subGlycerin .subject ul li {
+      width: 80%;
+      margin-bottom: 50px; }
+      .subGlycerin .subject ul li:nth-of-type(3), .subGlycerin .subject ul li:nth-of-type(4) {
+        margin-top: 0; }
+      .subGlycerin .subject ul li:nth-of-type(2), .subGlycerin .subject ul li:nth-of-type(4) {
+        transition-delay: 0; }
+      .subGlycerin .subject ul li:nth-of-type(4) {
+        margin-bottom: 0; } }
 
 /*# sourceMappingURL=sub.business.css.map */
