@@ -20,12 +20,7 @@
     &:first-of-type{
         position: relative;
         &:after{
-            @include after(16px,#f00);
-            content: 'N';
-            line-height: 16px;
-            color: #fff;
-            font-size: 10px;
-            height: 16px;
+            @include noticeIcon(N,#f00);
             left: 220px;
             top: 21px;
             opacity: 0;
@@ -78,9 +73,38 @@
     }
 }
 .subFaq .subject ul li{
-    .faqTitle{
-        
+    cursor: pointer;
+    &:hover{
+        background: #eee;
+    }
+    &.active{
+        background: #eee;
+    }
+    .faqTitle{ 
+        p{
+            display: inline-block;
+            font-size: 1.125rem;
+            font-weight: bold;
+            position: relative;
+            &:after{
+                @include noticeIcon(F,#676767);
+                left: -26px;
+                top: 6px;
+            }
+        }
+
     }
     .faqContent{
+        margin-top: 20px;
+        display: none;
+        p{
+            display: inline-block;
+            position: relative;
+            &:after{
+                @include noticeIcon(A,$color);
+                left: -26px;
+                top: 6px;
+            }
+        }
     }
 }

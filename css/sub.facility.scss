@@ -3,6 +3,22 @@
 .subHeader{
     @include background("facility_sub.jpg");
 }
-.biodisel .subject{
-    
+.subFacility .subject{
+    table{
+        width: 100%;
+        tr{
+            width:100%;
+            height: 80px;
+            border-bottom: 1px solid #ddd;
+            line-height: 80px;
+            th{
+                width: 30%;
+                font-weight: bold;
+            }
+            td{
+                width: 70%;
+                text-align: left;
+            }
+        }
+    }
 }

@@ -475,16 +475,14 @@ footer {
     position: relative; }
     .inner .subNotice .subject ul li:first-of-type:after {
       display: block;
-      content: '';
+      content: "N";
       width: 16px;
-      height: 1px;
+      height: 16px;
       position: absolute;
       background: #f00;
-      content: 'N';
+      font-size: 10px;
       line-height: 16px;
       color: #fff;
-      font-size: 10px;
-      height: 16px;
       left: 220px;
       top: 21px;
       opacity: 0;
@@ -523,5 +521,47 @@ footer {
       border: none;
       background: #00b17e;
       color: #fff; }
+
+.subFaq .subject ul li {
+  cursor: pointer; }
+  .subFaq .subject ul li:hover {
+    background: #eee; }
+  .subFaq .subject ul li.active {
+    background: #eee; }
+  .subFaq .subject ul li .faqTitle p {
+    display: inline-block;
+    font-size: 1.125rem;
+    font-weight: bold;
+    position: relative; }
+    .subFaq .subject ul li .faqTitle p:after {
+      display: block;
+      content: "F";
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      background: #676767;
+      font-size: 10px;
+      line-height: 16px;
+      color: #fff;
+      left: -26px;
+      top: 6px; }
+  .subFaq .subject ul li .faqContent {
+    margin-top: 20px;
+    display: none; }
+    .subFaq .subject ul li .faqContent p {
+      display: inline-block;
+      position: relative; }
+      .subFaq .subject ul li .faqContent p:after {
+        display: block;
+        content: "A";
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        background: #00b17e;
+        font-size: 10px;
+        line-height: 16px;
+        color: #fff;
+        left: -26px;
+        top: 6px; }
 
 /*# sourceMappingURL=sub.notice.css.map */

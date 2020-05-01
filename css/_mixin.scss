@@ -13,6 +13,17 @@ $gnbBorder : 1px solid #ddd;
         position: absolute;
         background: $back;
 }
+@mixin noticeIcon($text,$back){
+    display: block;
+    content: ''+$text;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    background: $back;
+    font-size: 10px;
+    line-height: 16px;
+    color: #fff;
+}
 @mixin background($url){
     background: url("../img/"+$url)no-repeat center center;
 }

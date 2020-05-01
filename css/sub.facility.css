@@ -460,4 +460,18 @@ footer {
 .subHeader {
   background: url("../img/facility_sub.jpg") no-repeat center center; }
 
+.subFacility .subject table {
+  width: 100%; }
+  .subFacility .subject table tr {
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #ddd;
+    line-height: 80px; }
+    .subFacility .subject table tr th {
+      width: 30%;
+      font-weight: bold; }
+    .subFacility .subject table tr td {
+      width: 70%;
+      text-align: left; }
+
 /*# sourceMappingURL=sub.facility.css.map */
