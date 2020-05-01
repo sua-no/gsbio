@@ -471,6 +471,29 @@ footer {
 
 .inner .subNotice .subject ul li {
   transition: .35s; }
+  .inner .subNotice .subject ul li:first-of-type {
+    position: relative; }
+    .inner .subNotice .subject ul li:first-of-type:after {
+      display: block;
+      content: '';
+      width: 16px;
+      height: 1px;
+      position: absolute;
+      background: #f00;
+      content: 'N';
+      line-height: 16px;
+      color: #fff;
+      font-size: 10px;
+      height: 16px;
+      left: 220px;
+      top: 21px;
+      opacity: 0;
+      animation: new 2.5s ease-in-out infinite; }
+@keyframes new {
+  0% {
+    opacity: 0; }
+  40% {
+    opacity: 1; } }
   .inner .subNotice .subject ul li a {
     width: 100%; }
     .inner .subNotice .subject ul li a div {

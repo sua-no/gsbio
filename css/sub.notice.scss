@@ -17,6 +17,25 @@
 }
 .inner .subNotice .subject ul li {
     transition: .35s;
+    &:first-of-type{
+        position: relative;
+        &:after{
+            @include after(16px,#f00);
+            content: 'N';
+            line-height: 16px;
+            color: #fff;
+            font-size: 10px;
+            height: 16px;
+            left: 220px;
+            top: 21px;
+            opacity: 0;
+            animation: new 2.5s ease-in-out infinite;
+            @keyframes new {
+                0%{opacity: 0;}
+                40%{opacity: 1;}
+            }
+        }
+    }
     a{
         width: 100%;
         div{
@@ -56,5 +75,12 @@
             }
         }
         
+    }
+}
+.subFaq .subject ul li{
+    .faqTitle{
+        
+    }
+    .faqContent{
     }
 }
