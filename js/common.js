@@ -1,6 +1,9 @@
 $(function () {
-    let docHeight, scrollLength, windowHeight = $(window).innerHeight();
+    let docHeight, scrollLength, 
+    windowHeight = $(window).innerHeight(),
+    gnbTimer = true;
 
+    
     $('header').load('header.html'); //헤더 로드
     $('footer').load('footer.html'); //푸터 로드
 
@@ -34,11 +37,18 @@ $(function () {
         }
         function depth2Down() {
             if (event.type == "mouseover") {
-                $('header').addClass('active');
-                $('.navLine').css({
-                    left: $(this).offset().left
-                }, 350);
-                $('.depth2,.gnbBox').slideDown(350);
+                if(gnbTimer){
+                    gnbTimer = false;
+                    $('header').addClass('active');
+                    $('.navLine').css({
+                        left: $(this).offset().left
+                    }, 350);
+                    $('.depth2,.gnbBox').slideDown(350);
+                    setTimeout(function(){
+                        gnbTimer = true;
+                    },350)
+                }
+                
             } else {
                 $('header').removeClass('active');
                 $('.depth2,.gnbBox').slideUp(350);
@@ -47,9 +57,9 @@ $(function () {
         function gnbShow() {
             $(this).toggleClass('active');
             if ($(this).hasClass('active')) {
-                $('nav').css({ transform: 'translateX(0%)' });
-            } else {
                 $('nav').css({ transform: 'translateX(100%)' });
+            } else {
+                $('nav').css({ transform: 'translateX(0%)' });
             }
         }
         function gnbClick() {

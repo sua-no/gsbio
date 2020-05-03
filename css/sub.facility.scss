@@ -6,6 +6,7 @@
 .subFacility .subject{
     table{
         width: 100%;
+        @include up();
         tr{
             width:100%;
             height: 80px;
@@ -20,5 +21,30 @@
                 text-align: left;
             }
         }
+    }
+    h4{
+        font-weight: bold;
+        font-size: 1.5rem;
+        margin: 100px 0 50px;
+        @include up();
+        position: relative;
+        &:after{
+            @include after(25px,$color);
+            left: calc(50% - 12px);
+            bottom: -25px;
+        }
+    }
+}
+.subFacility .subject .storage{
+    tr{
+        &:first-of-type{
+            th{
+                width: 33%;
+            }
+        }
+        td{
+            width: 35%;
+            text-align: center;
+        }  
     }
 }

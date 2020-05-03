@@ -138,7 +138,6 @@ header {
     header .headerInner .menuBtn {
       width: 28px;
       height: 20px;
-      display: flex;
       flex-direction: column;
       justify-content: space-between;
       display: none;
@@ -385,6 +384,8 @@ footer {
       display: block;
       width: 180px;
       height: 50px;
+      padding: 2% 0;
+      box-sizing: border-box;
       background: rgba(0, 177, 126, 0.5);
       border-right: 1px solid rgba(238, 238, 238, 0.2); }
       .subHeader .tabBox .tab:last-of-type {
@@ -401,15 +402,14 @@ footer {
           color: #333; }
       .subHeader .tabBox .tab span {
         width: 100%;
-        height: 100%;
-        line-height: 50px;
         color: #fff;
         font-weight: 100;
         cursor: pointer; }
 
 .subContents {
   width: 100%;
-  padding: 100px 0 150px; }
+  padding: 100px 0 150px;
+  overflow: hidden; }
   .subContents .inner {
     width: 67.7083%;
     margin: 0 auto;
@@ -457,11 +457,28 @@ footer {
           text-align: center;
           white-space: pre-line; }
 
+@media all and (max-width: 800px) {
+  .subHeader .tabBox {
+    width: 100%; }
+    .subHeader .tabBox .tab {
+      width: 25%; }
+      .subHeader .tabBox .tab span {
+        font-size: 0.875rem; } }
 .subHeader {
   background: url("../img/company_sub.jpg") no-repeat center center; }
 
 .subCompany .subject {
   position: relative; }
+  .subCompany .subject div {
+    width: 80%;
+    margin: 0 auto 80px;
+    font-size: 2.750rem;
+    font-weight: bold;
+    color: #00b17e; }
+    .subCompany .subject div.rightIn {
+      transform: translateX(300px);
+      opacity: 0;
+      transition: 1s ease-in-out; }
   .subCompany .subject p {
     width: 100%;
     margin: 0 auto 8.4615%; }
@@ -493,19 +510,16 @@ footer {
         padding-left: 30px;
         text-align: left; }
 
-.subCeo .subject div span {
+.subCeo .subject div {
   margin-bottom: 100px;
   font-size: 3.750rem;
   font-weight: bold;
   color: #00b17e;
-  white-space: pre-line;
-  transform: translateX(200px);
-  opacity: 0;
-  animation: rightIn .8s .8s ease-in-out forwards; }
-@keyframes rightIn {
-  100% {
-    transform: translateX(0);
-    opacity: 1; } }
+  white-space: pre-line; }
+  .subCeo .subject div.rightIn {
+    transform: translateX(300px);
+    opacity: 0;
+    transition: 1s ease-in-out; }
 .subCeo .subject p {
   margin-bottom: 20px; }
   .subCeo .subject p.up {
@@ -627,6 +641,10 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center; }
+    .subValue .subject ul li.up {
+      transform: translateY(80px);
+      opacity: 0;
+      transition: .5s ease-in; }
     .subValue .subject ul li:nth-of-type(1) .valueIcon {
       width: 166px;
       height: 166px;

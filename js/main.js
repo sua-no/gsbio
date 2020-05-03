@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function () {
+$(function () {
     const visualTxt = $('.visualTxt p');
     let datas, windowScroll, liIdx, jsonCopy1,
         jsonCopy2, docHeight, scrollLength, faqInterval,
@@ -19,7 +19,6 @@ window.addEventListener('DOMContentLoaded', function () {
             slideLoop(); //슬라이드 루프 함수 실행
         }
     });
-
 
     //스크롤 이벤트
     $(window).on('scroll', mainScrollManager);

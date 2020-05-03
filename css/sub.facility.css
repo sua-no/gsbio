@@ -138,7 +138,6 @@ header {
     header .headerInner .menuBtn {
       width: 28px;
       height: 20px;
-      display: flex;
       flex-direction: column;
       justify-content: space-between;
       display: none;
@@ -385,6 +384,8 @@ footer {
       display: block;
       width: 180px;
       height: 50px;
+      padding: 2% 0;
+      box-sizing: border-box;
       background: rgba(0, 177, 126, 0.5);
       border-right: 1px solid rgba(238, 238, 238, 0.2); }
       .subHeader .tabBox .tab:last-of-type {
@@ -401,15 +402,14 @@ footer {
           color: #333; }
       .subHeader .tabBox .tab span {
         width: 100%;
-        height: 100%;
-        line-height: 50px;
         color: #fff;
         font-weight: 100;
         cursor: pointer; }
 
 .subContents {
   width: 100%;
-  padding: 100px 0 150px; }
+  padding: 100px 0 150px;
+  overflow: hidden; }
   .subContents .inner {
     width: 67.7083%;
     margin: 0 auto;
@@ -457,11 +457,22 @@ footer {
           text-align: center;
           white-space: pre-line; }
 
+@media all and (max-width: 800px) {
+  .subHeader .tabBox {
+    width: 100%; }
+    .subHeader .tabBox .tab {
+      width: 25%; }
+      .subHeader .tabBox .tab span {
+        font-size: 0.875rem; } }
 .subHeader {
   background: url("../img/facility_sub.jpg") no-repeat center center; }
 
 .subFacility .subject table {
   width: 100%; }
+  .subFacility .subject table.up {
+    transform: translateY(80px);
+    opacity: 0;
+    transition: .5s ease-in; }
   .subFacility .subject table tr {
     width: 100%;
     height: 80px;
@@ -473,5 +484,29 @@ footer {
     .subFacility .subject table tr td {
       width: 70%;
       text-align: left; }
+.subFacility .subject h4 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 100px 0 50px;
+  position: relative; }
+  .subFacility .subject h4.up {
+    transform: translateY(80px);
+    opacity: 0;
+    transition: .5s ease-in; }
+  .subFacility .subject h4:after {
+    display: block;
+    content: '';
+    width: 25px;
+    height: 1px;
+    position: absolute;
+    background: #00b17e;
+    left: calc(50% - 12px);
+    bottom: -25px; }
+
+.subFacility .subject .storage tr:first-of-type th {
+  width: 33%; }
+.subFacility .subject .storage tr td {
+  width: 35%;
+  text-align: center; }
 
 /*# sourceMappingURL=sub.facility.css.map */
