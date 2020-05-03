@@ -469,16 +469,18 @@ footer {
 
 .subCompany .subject {
   position: relative; }
-  .subCompany .subject div {
+  .subCompany .subject div.rightIn {
     width: 80%;
-    margin: 0 auto 80px;
-    font-size: 2.750rem;
-    font-weight: bold;
-    color: #00b17e; }
-    .subCompany .subject div.rightIn {
+    margin: 0 auto 80px; }
+    .subCompany .subject div.rightIn.rightIn {
       transform: translateX(300px);
       opacity: 0;
       transition: 1s ease-in-out; }
+    .subCompany .subject div.rightIn p {
+      font-size: 2.750rem;
+      font-weight: bold;
+      color: #00b17e;
+      white-space: pre-line; }
   .subCompany .subject p {
     width: 100%;
     margin: 0 auto 8.4615%; }

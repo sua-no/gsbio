@@ -6,13 +6,16 @@
 .subCompany{
     .subject{
         position: relative;
-        div{
+        div.rightIn{
             width: 80%;
             margin: 0 auto 80px;
-            font-size: 2.750rem;
-            font-weight: bold;
-            color: $color;
             @include rightIn();
+            p{
+                font-size: 2.750rem;
+                font-weight: bold;
+                color: $color;
+                white-space: pre-line;
+            }
         }
         p{
             width: 100%;
