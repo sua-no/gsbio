@@ -103,7 +103,7 @@ header {
           transition: .35s; }
           header .headerInner nav .depth1 > li:last-of-type {
             display: none; }
-          header .headerInner nav .depth1 > li a {
+          header .headerInner nav .depth1 > li > a {
             padding: 10px 20px; }
           header .headerInner nav .depth1 > li .depth2 {
             width: 100%;

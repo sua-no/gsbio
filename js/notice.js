@@ -1,5 +1,5 @@
 $(function () {
-    $('.subFaq .subject ul li').on('click',faqSlide);
+    $('.faqList li').on('click',faqSlide);
     function faqSlide(){
         $(this).toggleClass('active').siblings().removeClass('active');
         if($(this).hasClass('active')){

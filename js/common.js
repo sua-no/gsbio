@@ -1,7 +1,7 @@
 $(function () {
     let docHeight, scrollLength, 
     windowHeight = $(window).innerHeight(),
-    gnbTimer = true;
+    gnbTimer = true,target;
 
     
     $('header').load('header.html'); //헤더 로드
@@ -26,8 +26,10 @@ $(function () {
                 $('nav').html('');
                 $('nav').html(navClone);
                 //글로벌내비 마우스오버 시 2depth menu down                
-                $('.depth1>li').on('mouseenter', depth2Down);
+                $('.depth1').on('mouseenter', depth2Down);
                 $('.depth1').on('mouseleave', depth2Down);
+                $('.depth1>li').on('mouseenter', lineMove);
+
             } else {
                 $('nav').html('');
                 $('nav').html(navClone);
@@ -35,24 +37,24 @@ $(function () {
                 $('.depth1>li').on('click', gnbClick);
             }
         }
+
         function depth2Down() {
-            if (event.type == "mouseover") {
-                if(gnbTimer){
-                    gnbTimer = false;
+            if(gnbTimer){
+                gnbTimer = false;
+                if(!$('.depth2,.gnbBox').is(':animated')){
                     $('header').addClass('active');
-                    $('.navLine').css({
-                        left: $(this).offset().left
-                    }, 350);
                     $('.depth2,.gnbBox').slideDown(350);
-                    setTimeout(function(){
-                        gnbTimer = true;
-                    },350)
                 }
-                
-            } else {
+            }else{
                 $('header').removeClass('active');
                 $('.depth2,.gnbBox').slideUp(350);
+                gnbTimer = true;
             }
+        }
+        function lineMove(){
+            $('.navLine').css({
+                left: $(this).offset().left
+            }, 350); 
         }
         function gnbShow() {
             $(this).toggleClass('active');
