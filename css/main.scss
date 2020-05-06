@@ -238,23 +238,22 @@ section.contents{
 }
 .processList{
     width: 100%;
-    height: 375px;
+    height: 300px;
     display: flex;
     margin-bottom: 50px;
     li{
         flex: 1;
         width: 20%;
-        height:400px;
+        height:100%;
         overflow: hidden;
         transition: .35s;
         @include up();
         &:hover{
             flex: 2;
-            box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+            box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.2);
             figure {
-                transform: scale(1.2);
                 figcaption{
-                background: rgba(0,0,0,0.2);
+                background: rgba(0,0,0,0.4);
                 transform: translateY(0%);
                 opacity: 1;
                 }
@@ -271,7 +270,7 @@ section.contents{
                 font-size: 24px;
                 font-weight: bold;
                 text-align: center;
-                line-height: 400px;
+                line-height: 300px;
                 color: #fff;
                 opacity: 0;
                 transform: translateY(100%);
@@ -281,6 +280,7 @@ section.contents{
         @for $i from 1 to 6{
             &:nth-of-type(#{$i}) figure{
                 @include background("process_0#{$i}.jpg");
+                background-size: cover;
             }
         }
     }
@@ -494,12 +494,15 @@ section.map{
     }
     .processList{
         flex-direction: column;
+        height: 800px;
         li{
             width: 100%;
-            height: 250px;
             flex: 1;
             &:hover{
                 flex: 1;
+            }
+            figure figcaption{
+                line-height: 160px;
             }
         }
     }

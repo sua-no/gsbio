@@ -468,7 +468,7 @@ footer {
   background: url("../img/hire_sub.jpg") no-repeat center center; }
 
 .subHire > p {
-  padding: 100px 10%;
+  padding: 150px 10%;
   text-align: center;
   transform: translateY(50px);
   opacity: 0;
@@ -484,7 +484,7 @@ footer {
 
 .subHire article {
   width: 100%;
-  padding: 50px 0;
+  padding: 100px 0;
   box-sizing: border-box; }
   .subHire article h3 {
     margin-bottom: 50px;
@@ -565,7 +565,7 @@ footer {
         line-height: 1.5em; }
 
 .subHire .hireBenefit {
-  height: 260px;
+  height: 360px;
   background: url("../img/hire_benefit.jpg") no-repeat center center;
   background-attachment: fixed; }
   .subHire .hireBenefit h3 {
