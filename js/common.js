@@ -1,9 +1,9 @@
 $(function () {
-    let docHeight, scrollLength, 
-    windowHeight = $(window).innerHeight(),
-    gnbTimer = true,target;
+    let docHeight, scrollLength,
+        windowHeight = $(window).innerHeight(),
+        gnbTimer = true, target;
 
-    
+
     $('header').load('header.html'); //헤더 로드
     $('footer').load('footer.html'); //푸터 로드
 
@@ -39,22 +39,22 @@ $(function () {
         }
 
         function depth2Down() {
-            if(gnbTimer){
+            if (gnbTimer) {
                 gnbTimer = false;
-                if(!$('.depth2,.gnbBox').is(':animated')){
+                if (!$('.depth2,.gnbBox').is(':animated')) {
                     $('header').addClass('active');
                     $('.depth2,.gnbBox').slideDown(350);
                 }
-            }else{
+            } else {
                 $('header').removeClass('active');
                 $('.depth2,.gnbBox').slideUp(350);
                 gnbTimer = true;
             }
         }
-        function lineMove(){
+        function lineMove() {
             $('.navLine').css({
                 left: $(this).offset().left
-            }, 350); 
+            }, 350);
         }
         function gnbShow() {
             $(this).toggleClass('active');
