@@ -1,7 +1,6 @@
 $(function () {
     let docHeight, scrollLength,
-        windowHeight = $(window).innerHeight(),
-        gnbTimer = true, target;
+        windowHeight = $(window).innerHeight();
 
 
     $('header').load('header.html'); //헤더 로드
@@ -11,6 +10,7 @@ $(function () {
     $(window).on('scroll', scrollManager);
     $('.top').on('click', scrollTop); // top버튼 클릭시 scrolltop : 0
 
+    
     setTimeout(function () { //html로드 후 적용
         const navClone = $('nav').html();
 
@@ -34,21 +34,17 @@ $(function () {
                 $('nav').html('');
                 $('nav').html(navClone);
                 //글로벌내비 클릭 이벤트 : 2depth메뉴 슬라이드 토글
-                $('.depth1>li').on('click', gnbClick);
+                $('.depth1>li>a').on('click', gnbClick);
             }
         }
 
         function depth2Down() {
-            if (gnbTimer) {
-                gnbTimer = false;
-                if (!$('.depth2,.gnbBox').is(':animated')) {
-                    $('header').addClass('active');
-                    $('.depth2,.gnbBox').slideDown(350);
-                }
+            if (event.type == 'mouseover') {
+                $('header').addClass('active');
+                $('.depth2,.gnbBox').slideDown(350);
             } else {
                 $('header').removeClass('active');
                 $('.depth2,.gnbBox').slideUp(350);
-                gnbTimer = true;
             }
         }
         function lineMove() {
@@ -59,19 +55,20 @@ $(function () {
         function gnbShow() {
             $(this).toggleClass('active');
             if ($(this).hasClass('active')) {
-                $('nav').css({ transform: 'translateX(100%)' });
-            } else {
                 $('nav').css({ transform: 'translateX(0%)' });
+            } else {
+                $('nav').css({ transform: 'translateX(100%)' });
             }
         }
         function gnbClick() {
-            event.preventDefault();
-            $(this).toggleClass('active').siblings().removeClass('active');
-            if ($(this).hasClass('active')) {
+            $(this).attr('class') != 'navHire' ? event.preventDefault() : "";
+
+            $(this).parent().toggleClass('active').siblings().removeClass('active');
+            if ($(this).parent().hasClass('active')) {
                 $('.depth2').slideUp();
-                $(this).find($('.depth2')).slideDown();
+                $(this).siblings($('.depth2')).slideDown();
             } else {
-                $(this).find($('.depth2')).slideUp();
+                $(this).siblings($('.depth2')).slideUp();
             }
         }
         function familyClick() {

@@ -37,7 +37,8 @@ button {
   border-radius: 0;
   padding: 0;
   overflow: visible;
-  cursor: pointer; }
+  cursor: pointer;
+  outline: none; }
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -390,6 +391,8 @@ main {
         display: flex;
         justify-content: center;
         align-items: center; }
+        .visual .visualSlide ul li img {
+          height: 100%; }
   .visual .visualTxt {
     width: 70%;
     position: absolute;
@@ -446,7 +449,8 @@ main {
         height: 19px;
         margin-left: 12px;
         background: url("../img/visual_pause.png") no-repeat center center;
-        transition: .2s; }
+        transition: .2s;
+        outline: none; }
       .visual .visualBtn .visualPosition .pause.active {
         background: url("../img/visual_play.png") no-repeat center center; }
 
