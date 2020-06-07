@@ -449,8 +449,7 @@ main {
         height: 19px;
         margin-left: 12px;
         background: url("../img/visual_pause.png") no-repeat center center;
-        transition: .2s;
-        outline: none; }
+        transition: .2s; }
       .visual .visualBtn .visualPosition .pause.active {
         background: url("../img/visual_play.png") no-repeat center center; }
 
